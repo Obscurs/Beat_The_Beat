@@ -1,22 +1,49 @@
 #pragma once
 #include "Utils.h"
+#include "Inputs.h"
 
-class Game
-{
+class Game {
 public:
     Game();
     ~Game();
 	void Init();
 
-private:
-	void GameLoop(double delta);
-	enum GameState { Uninitialized,
-					ShowingMenu, Exiting };
+private:	
+	enum GameState {
+		Uninitialized,
+		ShowingMenu,
+		Exiting
+	};
+
+	GameState _gameState;
+	sf::RenderWindow _window;
+
+	sf::Clock _clock;
+
+	Inputs _inputs;
+
+	sf::Font _font;
+	sf::Text _fpsText;
+	float _fpsTimer;
+	int _fpsCount;
+	int _fpsCount2;
+
+	void GameLoop();
+
+	/***/
+
+	void Update();
+	void Draw();
+	void Event();
+
 	bool IsExiting();
 	void ExitGame();
-	GameState _gameState;
-	sf::RenderWindow window;
 
+	void LoadAssets();
 
+	void InitFpsText();
+	void UpdateFpsText(const sf::Time& deltatime);
+
+	void End();
 
 };

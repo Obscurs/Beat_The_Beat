@@ -1,119 +1,114 @@
 #include "Game.h"
 
-Game::Game(): window() {
+Game::Game() {
     _gameState = Uninitialized;
 }
 
-Game::~Game() {
+Game::~Game() {}
 
-}
-
-void Game::Init(void) {
+void Game::Init() {
 
     if(_gameState != Uninitialized)
         return;
 
-    window.create(
+    _window.create(
         sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP),
         SCREEN_TITLE
     );
 
     _gameState= Game::ShowingMenu;
-    sf::Clock clock1;
-    sf::Clock clock2;
-    float lastTime = 0;
+    LoadAssets();
+    InitFpsText();
 
-    char c[10];
-    sf::Text text;
-    sf::Font font;
-    text.setCharacterSize(24);
-    text.setColor(sf::Color::Red);
-    text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+    GameLoop();
+}
 
-    sf::String str("no data");
-    text.setString(str);
+void Game::GameLoop() {
+    while (not IsExiting()) {
+        Event();
+        Update();
+        Draw();
+    }
+}
 
-    if (!font.loadFromFile("resources/font1.ttf"))
-    {
+void Game::Update() {
+    sf::Time deltatime = _clock.restart();
+
+    UpdateFpsText(deltatime);
+    _inputs.Update(deltatime);
+}
+
+void Game::Draw() {
+    _window.clear(sf::Color::Green);
+    _window.draw(_fpsText);
+    _window.display();
+}
+
+void Game::Event() {
+    sf::Event event;
+
+    while(_window.pollEvent(event)) {
+        if (event.type == sf::Event::Closed) {
+            End();
+        }
+    }
+}
+
+bool Game::IsExiting() { return _gameState == Game::Exiting; }
+
+void Game::ExitGame() { _gameState = Exiting; }
+
+void  Game::LoadAssets() {
+    if (!_font.loadFromFile("resources/font1.ttf")) {
         std::cout << "font error" << std::endl;
     }
-    text.setFont(font); // font is a sf::Font
-    float fps_timer=0;
-    int fps_count=0;
-    int fps_count2=0;
-
-    while(!IsExiting())
-    {
-        double delta =  clock1.restart().asSeconds();
-
-
-        float currentTime = clock2.restart().asSeconds();
-        float fps = 1.f / currentTime;
-        fps_count += 1;
-        fps_count2 += fps;
-        lastTime = currentTime;
-
-        window.clear(sf::Color(0,255,0));
-        GameLoop(delta);
-        fps_timer += lastTime;
-        sf::View currentView = window.getView();
-        sf::Vector2f centerView = currentView.getCenter();
-        sf::Vector2f sizeView = currentView.getSize();
-        text.setPosition(centerView.x-sizeView.x/2, centerView.y-sizeView.y/2);
-        if(fps_timer > 1){
-            sprintf(c, "%i", fps_count2/fps_count);
-            std::string string(c);
-            sf::String str(string);
-            text.setString(str);
-
-            fps_count = 0;
-            fps_count2 = 0;
-            fps_timer = 0;
-        }
-
-        window.draw(text);
-        window.display();
-    }
-
-    window.close();
 }
 
-bool Game::IsExiting() {
-    if(_gameState == Game::Exiting)
-        return true;
-    else
-        return false;
+void Game::InitFpsText() {
+    _fpsText.setCharacterSize(24);
+    _fpsText.setColor(sf::Color::Red);
+    _fpsText.setStyle(sf::Text::Bold | sf::Text::Underlined);
+
+    sf::String str("no data");
+    _fpsText.setString(str);
+    
+    _fpsText.setFont(_font);
+
+    _fpsTimer  = 0;
+    _fpsCount  = 0;
+    _fpsCount2 = 0;
 }
 
-void Game::GameLoop(double delta) {
+void Game::UpdateFpsText(const sf::Time& deltatime) {
+    float seconds = deltatime.asSeconds();
+    float fps = 1.f / seconds;
+    
+    _fpsCount += 1;
+    _fpsCount2 += fps;
+    _fpsTimer += seconds;
 
-    sf::Event currentEvent;
-    switch(_gameState)
-    {
-        case Game::ShowingMenu:
-        {
+    sf::View currentView    = _window.getView();
+    sf::Vector2f centerView = currentView.getCenter();
+    sf::Vector2f sizeView   = currentView.getSize();
+    
+    _fpsText.setPosition(centerView.x-sizeView.x/2, centerView.y-sizeView.y/2);
+    
+    char buffer[40];
+    if(_fpsTimer > 1){
+        sprintf(buffer, "%i", _fpsCount2 / _fpsCount);
+        std::string string(buffer);
+        sf::String str(string);
+        _fpsText.setString(str);
 
-            while(window.pollEvent(currentEvent))
-            {
-                if (
-                         (currentEvent.type == sf::Event::KeyPressed) &&
-                          (currentEvent.key.code == sf::Keyboard::Escape))
-                {
-                    std::cout << "bye" << std::endl;
-                    Game::ExitGame();
-                }
-
-            }
-            //Update();
-            //Draw();
-            break;
-        }
-
+        _fpsCount = 0;
+        _fpsCount2 = 0;
+        _fpsTimer = 0;
     }
 }
 
-
-
-void Game::ExitGame() {
+void Game::End() {
+    _window.close();
     _gameState = Exiting;
+
+    std::cout << "bye" << std::endl;
 }

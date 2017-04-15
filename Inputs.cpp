@@ -33,7 +33,7 @@ void Inputs::Update(const sf::Time& deltatime) {
 }
 
 bool Inputs::KeyDown(Inputs::Key k) const { return _currentKeyState[k]; }
-bool Inputs::KeyUp(Inputs::Key k)  const { return not _currentKeyState[k]; }
+bool Inputs::KeyUp(Inputs::Key k)   const { return not _currentKeyState[k]; }
 
 bool Inputs::KeyHit(Inputs::Key k) const {
 	return not _lastKeyState[k] and _currentKeyState[k];
