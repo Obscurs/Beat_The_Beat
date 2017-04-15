@@ -13,7 +13,10 @@ void Game::Init(void) {
     if(_gameState != Uninitialized)
         return;
 
-    window.create(sf::VideoMode(1024,1024,32),"Beat the beat!");
+    window.create(
+        sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP),
+        SCREEN_TITLE
+    );
 
     _gameState= Game::ShowingMenu;
     sf::Clock clock1;

@@ -1,65 +1,44 @@
 #include "Inputs.h"
 
+const sf::Keyboard::Key Inputs::_keyMap[NUM_KEYS] = {
+	sf::Keyboard::Up,
+	sf::Keyboard::Down,
+	sf::Keyboard::Left,
+	sf::Keyboard::Right,
+	sf::Keyboard::Z,
+	sf::Keyboard::X,
+	sf::Keyboard::Return,
+	sf::Keyboard::BackSpace
+};
+
 Inputs::Inputs() {
-	keys["Control"] = sf::Vector2i(0,0);
-	keys["mouseLeft"] = sf::Vector2i(0,0);
-	keys["mouseRight"] = sf::Vector2i(0,0);
-	keys["LShift"] = sf::Vector2i(0,0);
-	keys["Q"] = sf::Vector2i(0,0);
-	keys["A"] = sf::Vector2i(0,0);
-	keys["D"] = sf::Vector2i(0,0);
-	keys["Left"] = sf::Vector2i(0,0);
-	keys["Right"] = sf::Vector2i(0,0);
-	keys["Up"] = sf::Vector2i(0,0);
-	keys["Down"] = sf::Vector2i(0,0);
-	keys["Space"] = sf::Vector2i(0,0);
-	keys["wheel"] = sf::Vector2i(0,0);
-	keys["Enter"] = sf::Vector2i(0,0);
-	wheelDelta = 0;
+	memset(_lastKeyState, 0, sizeof(_lastKeyState));
+	memset(_currentKeyState, 0, sizeof(_currentKeyState));
 }
 
+Inputs::~Inputs() {}
 
-Inputs::~Inputs() {
-	
-}
+void Inputs::Update(const sf::Time& deltatime) {
+	// Update _lastKeyState
+	memcpy(_lastKeyState, _currentKeyState, sizeof(_currentKeyState));
 
-void Inputs::UpdateKey(bool pressed, std::string key) {
-	if (pressed){
-		keys[key].x=1;
-		keys[key].y=0;
-	} else {
-		if(keys[key].x==1){
-			keys[key].x=0;
-			keys[key].y=1;
-		} else{
-			keys[key].y=0;
-		}
+	// Update _currentKeyState
+	unsigned int i;
+	for (i = 0; i < NUM_KEYS; ++i) {
+		Inputs::Key key = (Inputs::Key) i;
+		sf::Keyboard::Key keyboard_key = _keyMap[key];
+
+		_currentKeyState[key] = sf::Keyboard::isKeyPressed(keyboard_key);
 	}
 }
 
+bool Inputs::KeyDown(Inputs::Key k) const { return _currentKeyState[k]; }
+bool Inputs::KeyUp(Inputs::Key k)  const { return not _currentKeyState[k]; }
 
-void Inputs::Update() {
-	UpdateKey(sf::Mouse::isButtonPressed(sf::Mouse::Left), "mouseLeft");
-	UpdateKey(sf::Mouse::isButtonPressed(sf::Mouse::Right), "mouseRight");
-	UpdateKey(sf::Keyboard::isKeyPressed(sf::Keyboard::LShift), "LShift");
-	UpdateKey(sf::Keyboard::isKeyPressed(sf::Keyboard::Q), "Q");
-	UpdateKey(sf::Keyboard::isKeyPressed(sf::Keyboard::A), "A");
-	UpdateKey(sf::Keyboard::isKeyPressed(sf::Keyboard::D), "D");
-	UpdateKey(sf::Keyboard::isKeyPressed(sf::Keyboard::Space), "Space");
-	UpdateKey(sf::Keyboard::isKeyPressed(sf::Keyboard::Left), "Left");
-	UpdateKey(sf::Keyboard::isKeyPressed(sf::Keyboard::Right), "Right");
-	UpdateKey(sf::Keyboard::isKeyPressed(sf::Keyboard::Up), "Up");
-	UpdateKey(sf::Keyboard::isKeyPressed(sf::Keyboard::Down), "Down");
-	UpdateKey(sf::Keyboard::isKeyPressed(sf::Keyboard::Return), "Enter");
-	UpdateKey(sf::Keyboard::isKeyPressed(sf::Keyboard::LControl), "Control");
-	keys["wheel"] = sf::Vector2i(wheelDelta, 0);
-	wheelDelta = 0;
+bool Inputs::KeyHit(Inputs::Key k) const {
+	return not _lastKeyState[k] and _currentKeyState[k];
 }
 
-void Inputs::UpdateWheel(int delta) {
-	wheelDelta = delta;
-}
-
-sf::Vector2i Inputs::getKey(std::string s) {
-	return keys[s];
+bool Inputs::KeyBreak(Inputs::Key k) const {
+	return _lastKeyState[k] and not _currentKeyState[k];
 }
