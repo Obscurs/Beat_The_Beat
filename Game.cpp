@@ -1,40 +1,14 @@
-#include <stdio.h>
-#include <math.h>
-// TODO: reference additional headers your program requires here
-#include <SFML/OpenGL.hpp>
-#include <SFML/System.hpp>
-#include <SFML/Graphics.hpp>
-#include <SFML/Window.hpp>
-#include <SFML/Audio.hpp>
-#include <iostream>
-
-#include <dirent.h>
-#include <fstream>
-#include <sys/stat.h>
-#include <string.h>
-
-#include <limits.h>
-#include <unistd.h>
-#include <unistd.h>
-#include <cassert>
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/types.h>
-
 #include "Game.h"
 
-Game::Game():
-        window()
-{
+Game::Game(): window() {
     _gameState = Uninitialized;
-
-}
-Game::~Game(){
-
 }
 
-void Game::Init(void)
-{
+Game::~Game() {
+
+}
+
+void Game::Init(void) {
 
     if(_gameState != Uninitialized)
         return;
@@ -101,19 +75,14 @@ void Game::Init(void)
     window.close();
 }
 
-bool Game::IsExiting()
-{
+bool Game::IsExiting() {
     if(_gameState == Game::Exiting)
         return true;
     else
         return false;
 }
 
-
-
-
-void Game::GameLoop(double delta)
-{
+void Game::GameLoop(double delta) {
 
     sf::Event currentEvent;
     switch(_gameState)
@@ -142,11 +111,6 @@ void Game::GameLoop(double delta)
 
 
 
-void Game::ExitGame()
-{
+void Game::ExitGame() {
     _gameState = Exiting;
 }
-
-
-
-

@@ -1,7 +1,6 @@
-#ifndef __INPUTS_H__
-#define __INPUTS_H__
+#pragma once
+#include "Utils.h"
 
-#include <vector>
 class Inputs
 {
 public:
@@ -21,5 +20,3 @@ private:
 	std::map<std::string, sf::Vector2i> keys;
 	int wheelDelta;
 };
-
-#endif

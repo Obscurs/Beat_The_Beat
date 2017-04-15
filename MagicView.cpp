@@ -3,7 +3,6 @@
 //
 
 #include "MagicView.h"
-#include <iostream>
 
 MagicView::MagicView() : _mode(ViewMode::expanded), _align(ViewAlign::center) {
     _target = nullptr;

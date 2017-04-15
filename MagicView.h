@@ -2,13 +2,8 @@
 // Created by pinki.
 //
 
-#ifndef TORRATEST_MAGICVIEW_H
-#define TORRATEST_MAGICVIEW_H
-
-
-#include "SFML/Window.hpp"
-#include "SFML/Graphics.hpp"
-#include "SFML/Audio.hpp"
+#pragma once
+#include "Utils.h"
 
 namespace sf {
     typedef sf::Vector2<double> Vector2d;
@@ -70,5 +65,3 @@ private:
     sf::Rect<float> _viewport;
     sf::Vector2f _offset;
 };
-
-#endif

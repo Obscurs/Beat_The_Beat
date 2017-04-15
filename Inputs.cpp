@@ -1,23 +1,6 @@
-#include <stdio.h>
-
-
-// TODO: reference additional headers your program requires here
-#include <SFML/System.hpp>
-#include <SFML/Graphics.hpp>
-#include <SFML/Window.hpp>
-#include <SFML/Audio.hpp>
-
-#include <map>
-#include <iostream>
-#include <cassert>
-
-
 #include "Inputs.h"
 
-
-
-Inputs::Inputs()
-{
+Inputs::Inputs() {
 	keys["Control"] = sf::Vector2i(0,0);
 	keys["mouseLeft"] = sf::Vector2i(0,0);
 	keys["mouseRight"] = sf::Vector2i(0,0);
@@ -36,11 +19,11 @@ Inputs::Inputs()
 }
 
 
-Inputs::~Inputs()
-{
+Inputs::~Inputs() {
 	
 }
-void Inputs::UpdateKey(bool pressed, std::string key){
+
+void Inputs::UpdateKey(bool pressed, std::string key) {
 	if (pressed){
 		keys[key].x=1;
 		keys[key].y=0;
@@ -55,8 +38,7 @@ void Inputs::UpdateKey(bool pressed, std::string key){
 }
 
 
-void Inputs::Update(){
-
+void Inputs::Update() {
 	UpdateKey(sf::Mouse::isButtonPressed(sf::Mouse::Left), "mouseLeft");
 	UpdateKey(sf::Mouse::isButtonPressed(sf::Mouse::Right), "mouseRight");
 	UpdateKey(sf::Keyboard::isKeyPressed(sf::Keyboard::LShift), "LShift");
@@ -78,6 +60,6 @@ void Inputs::UpdateWheel(int delta) {
 	wheelDelta = delta;
 }
 
-sf::Vector2i Inputs::getKey(std::string s){
+sf::Vector2i Inputs::getKey(std::string s) {
 	return keys[s];
 }
