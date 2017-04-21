@@ -1,4 +1,5 @@
-#pragma once
+#ifndef BEAT_THE_BEAT_GAME_H
+#define BEAT_THE_BEAT_GAME_H
 #include "Utils.h"
 #include "Inputs.h"
 
@@ -47,3 +48,4 @@ private:
 	void End();
 
 };
+#endif //BEAT_THE_BEAT_GAME_H

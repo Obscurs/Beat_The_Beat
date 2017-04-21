@@ -42,3 +42,4 @@ bool Inputs::KeyHit(Inputs::Key k) const {
 bool Inputs::KeyBreak(Inputs::Key k) const {
 	return _lastKeyState[k] and not _currentKeyState[k];
 }
+
