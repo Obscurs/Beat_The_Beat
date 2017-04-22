@@ -10,11 +10,24 @@
 #include "InputFlags.h"
 class Beat {
 public:
-    Beat(const sf::Time& timespamp, const InputFlags& flags);
+
+
+    Beat(sf::Time& timespamp, InputFlags& flags);
     ~Beat();
 
     sf::Time getTimestamp() const;
     InputFlags getInputFlags() const;
+    Inputs::Key getKey() const;
+    BeatState getCurrentState() const;
+
+
+    /**
+        If mState == ACTIVE
+            If there is an input in flags expected by mFlags
+                Update mKey
+                Update mState
+    */
+    void update(const sf::Time& current_time, InputFlags& flags);
 
     enum BeatState {
         INACTIVE,       // mTimestamp > CurrentTime + TOLERANCE
@@ -23,22 +36,14 @@ public:
         MISSED          // mTimestamp < CurrentTime + TOLERANCE and not GOOD
     };
 
-    BeatState getCurrentState() const;
-
-    /**
-        If mState == ACTIVE
-            If there is an input in flags expected by mFlags
-                Update mKey
-                Update mState
-                Toggle off mFlag of that input
-    */
-    void update(const sf::Time& current_time, InputFlags& flags);
-
-    Inputs::Key getKey() const;
-
 
 private:
-    static const sf::Time TOLERANCE;
+    /**
+		if currentTime is between mTimesamp and mTimestamp + tolerance and mState == INACTIVE, set mState to ACTIVE
+		@param currentTime, the current time of the beatStream
+	*/
+    void checkActive(const sf::Time &currentTime);
+    static const sf::Time TOLERANCE = sf::seconds(1.0f);
 
     const sf::Time   mTimestamp;
     const InputFlags mFlags;
