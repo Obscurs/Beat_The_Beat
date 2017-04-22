@@ -33,9 +33,8 @@ void Game::GameLoop() {
 
 void Game::Update() {
     sf::Time deltatime = _clock.restart();
-
+    _inputs.Update();
     UpdateFpsText(deltatime);
-    _inputs.Update(deltatime);
 }
 
 void Game::Draw() {
@@ -50,6 +49,12 @@ void Game::Event() {
     while(_window.pollEvent(event)) {
         if (event.type == sf::Event::Closed) {
             End();
+        }
+        else if (event.type == sf::Event::KeyPressed) {
+            _inputs.KeyPressed(event.key.code);
+        }
+        else if (event.type == sf::Event::KeyReleased) {
+            _inputs.KeyReleased(event.key.code);
         }
     }
 }

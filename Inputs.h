@@ -13,8 +13,9 @@ public:
 	Inputs();
 	~Inputs();
 
-	void Update(const sf::Time& deltatime);
-
+	void Update();
+	void KeyPressed(const sf::Keyboard::Key &code);
+	void KeyReleased(const sf::Keyboard::Key &code);
 	enum Key {
 		UP = 0,
 		DOWN,

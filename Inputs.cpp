@@ -18,19 +18,40 @@ Inputs::Inputs() {
 
 Inputs::~Inputs() {}
 
-void Inputs::Update(const sf::Time& deltatime) {
+void Inputs::Update() {
 	// Update _lastKeyState
 	memcpy(_lastKeyState, _currentKeyState, sizeof(_currentKeyState));
+
+
+}
+
+void Inputs::KeyPressed(const sf::Keyboard::Key &code) {
 
 	// Update _currentKeyState
 	unsigned int i;
 	for (i = 0; i < NUM_KEYS; ++i) {
 		Inputs::Key key = (Inputs::Key) i;
 		sf::Keyboard::Key keyboard_key = _keyMap[key];
+		if(code == keyboard_key) {
+			_currentKeyState[key] = true;
+		}
 
-		_currentKeyState[key] = sf::Keyboard::isKeyPressed(keyboard_key);
 	}
 }
+void Inputs::KeyReleased(const sf::Keyboard::Key &code) {
+
+	// Update _currentKeyState
+	unsigned int i;
+	for (i = 0; i < NUM_KEYS; ++i) {
+		Inputs::Key key = (Inputs::Key) i;
+		sf::Keyboard::Key keyboard_key = _keyMap[key];
+		if(code == keyboard_key) {
+			_currentKeyState[key] = false;
+		}
+
+	}
+}
+
 
 bool Inputs::KeyDown(Inputs::Key k) const { return _currentKeyState[k]; }
 bool Inputs::KeyUp(Inputs::Key k)   const { return not _currentKeyState[k]; }
