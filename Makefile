@@ -180,6 +180,33 @@ BeatStream.cpp.s:
 	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.s
 .PHONY : BeatStream.cpp.s
 
+Conductor.o: Conductor.cpp.o
+
+.PHONY : Conductor.o
+
+# target to build an object file
+Conductor.cpp.o:
+	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/Conductor.cpp.o
+.PHONY : Conductor.cpp.o
+
+Conductor.i: Conductor.cpp.i
+
+.PHONY : Conductor.i
+
+# target to preprocess a source file
+Conductor.cpp.i:
+	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/Conductor.cpp.i
+.PHONY : Conductor.cpp.i
+
+Conductor.s: Conductor.cpp.s
+
+.PHONY : Conductor.s
+
+# target to generate assembly for a file
+Conductor.cpp.s:
+	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/Conductor.cpp.s
+.PHONY : Conductor.cpp.s
+
 Game.o: Game.cpp.o
 
 .PHONY : Game.o
@@ -357,6 +384,9 @@ help:
 	@echo "... BeatStream.o"
 	@echo "... BeatStream.i"
 	@echo "... BeatStream.s"
+	@echo "... Conductor.o"
+	@echo "... Conductor.i"
+	@echo "... Conductor.s"
 	@echo "... Game.o"
 	@echo "... Game.i"
 	@echo "... Game.s"

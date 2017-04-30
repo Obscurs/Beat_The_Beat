@@ -7,6 +7,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.o"
   "CMakeFiles/Beat_The_Beat.dir/GameObject.cpp.o"
   "CMakeFiles/Beat_The_Beat.dir/InputFlags.cpp.o"
+  "CMakeFiles/Beat_The_Beat.dir/Conductor.cpp.o"
   "Beat_The_Beat.pdb"
   "Beat_The_Beat"
 )

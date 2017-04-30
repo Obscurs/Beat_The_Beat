@@ -6,13 +6,13 @@
 #define BEAT_THE_BEAT_BEATSTREAM_H
 
 #include "GameObject.h"
+#include "Game.h"
 #include "Beat.h"
 #include "InputFlags.h"
-#include <list>
 
 class BeatStream : public GameObject {
 public:
-    BeatStream();
+    BeatStream(Game* game);
     ~BeatStream();
 
     void readBeats(const std::string& filename);
@@ -24,6 +24,8 @@ public:
     std::list<Beat*>::iterator getGoodBeats();
 
 private:
+    Game* mGame;
+
     std::list<Beat*> mBeats;
     std::list<Beat*> mFailedBeats;
     std::list<Beat*> mGoodBeats;

@@ -10,11 +10,18 @@ CMakeFiles/Beat_The_Beat.dir/Beat.cpp.o: Utils.h
 CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.o: Beat.h
 CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.o: BeatStream.cpp
 CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.o: BeatStream.h
+CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.o: Conductor.h
+CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.o: Game.h
 CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.o: GameObject.h
 CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.o: InputFlags.h
 CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.o: Inputs.h
 CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.o: Utils.h
 
+CMakeFiles/Beat_The_Beat.dir/Conductor.cpp.o: Conductor.cpp
+CMakeFiles/Beat_The_Beat.dir/Conductor.cpp.o: Conductor.h
+CMakeFiles/Beat_The_Beat.dir/Conductor.cpp.o: Utils.h
+
+CMakeFiles/Beat_The_Beat.dir/Game.cpp.o: Conductor.h
 CMakeFiles/Beat_The_Beat.dir/Game.cpp.o: Game.cpp
 CMakeFiles/Beat_The_Beat.dir/Game.cpp.o: Game.h
 CMakeFiles/Beat_The_Beat.dir/Game.cpp.o: Inputs.h
@@ -37,6 +44,7 @@ CMakeFiles/Beat_The_Beat.dir/MagicView.cpp.o: MagicView.cpp
 CMakeFiles/Beat_The_Beat.dir/MagicView.cpp.o: MagicView.h
 CMakeFiles/Beat_The_Beat.dir/MagicView.cpp.o: Utils.h
 
+CMakeFiles/Beat_The_Beat.dir/Main.cpp.o: Conductor.h
 CMakeFiles/Beat_The_Beat.dir/Main.cpp.o: Game.h
 CMakeFiles/Beat_The_Beat.dir/Main.cpp.o: Inputs.h
 CMakeFiles/Beat_The_Beat.dir/Main.cpp.o: Main.cpp

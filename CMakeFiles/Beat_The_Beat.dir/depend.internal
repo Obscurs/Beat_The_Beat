@@ -11,11 +11,18 @@ CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.o
  /home/fabio/Documents/Beat_The_Beat/Beat.h
  /home/fabio/Documents/Beat_The_Beat/BeatStream.cpp
  /home/fabio/Documents/Beat_The_Beat/BeatStream.h
+ /home/fabio/Documents/Beat_The_Beat/Conductor.h
+ /home/fabio/Documents/Beat_The_Beat/Game.h
  /home/fabio/Documents/Beat_The_Beat/GameObject.h
  /home/fabio/Documents/Beat_The_Beat/InputFlags.h
  /home/fabio/Documents/Beat_The_Beat/Inputs.h
  /home/fabio/Documents/Beat_The_Beat/Utils.h
+CMakeFiles/Beat_The_Beat.dir/Conductor.cpp.o
+ /home/fabio/Documents/Beat_The_Beat/Conductor.cpp
+ /home/fabio/Documents/Beat_The_Beat/Conductor.h
+ /home/fabio/Documents/Beat_The_Beat/Utils.h
 CMakeFiles/Beat_The_Beat.dir/Game.cpp.o
+ /home/fabio/Documents/Beat_The_Beat/Conductor.h
  /home/fabio/Documents/Beat_The_Beat/Game.cpp
  /home/fabio/Documents/Beat_The_Beat/Game.h
  /home/fabio/Documents/Beat_The_Beat/Inputs.h
@@ -38,6 +45,7 @@ CMakeFiles/Beat_The_Beat.dir/MagicView.cpp.o
  /home/fabio/Documents/Beat_The_Beat/MagicView.h
  /home/fabio/Documents/Beat_The_Beat/Utils.h
 CMakeFiles/Beat_The_Beat.dir/Main.cpp.o
+ /home/fabio/Documents/Beat_The_Beat/Conductor.h
  /home/fabio/Documents/Beat_The_Beat/Game.h
  /home/fabio/Documents/Beat_The_Beat/Inputs.h
  /home/fabio/Documents/Beat_The_Beat/Main.cpp

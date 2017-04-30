@@ -25,12 +25,20 @@ BeatStream.h
 /home/fabio/Documents/Beat_The_Beat/BeatStream.h
 GameObject.h
 /home/fabio/Documents/Beat_The_Beat/GameObject.h
+Game.h
+/home/fabio/Documents/Beat_The_Beat/Game.h
 Beat.h
 /home/fabio/Documents/Beat_The_Beat/Beat.h
 InputFlags.h
 /home/fabio/Documents/Beat_The_Beat/InputFlags.h
-list
--
+
+/home/fabio/Documents/Beat_The_Beat/Conductor.cpp
+Conductor.h
+/home/fabio/Documents/Beat_The_Beat/Conductor.h
+
+/home/fabio/Documents/Beat_The_Beat/Conductor.h
+Utils.h
+/home/fabio/Documents/Beat_The_Beat/Utils.h
 
 /home/fabio/Documents/Beat_The_Beat/Game.cpp
 Game.h
@@ -41,6 +49,8 @@ Utils.h
 /home/fabio/Documents/Beat_The_Beat/Utils.h
 Inputs.h
 /home/fabio/Documents/Beat_The_Beat/Inputs.h
+Conductor.h
+/home/fabio/Documents/Beat_The_Beat/Conductor.h
 
 /home/fabio/Documents/Beat_The_Beat/GameObject.cpp
 GameObject.h
@@ -108,6 +118,8 @@ iostream
 fstream
 -
 vector
+-
+list
 -
 stdio.h
 -

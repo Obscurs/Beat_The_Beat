@@ -20,8 +20,12 @@ void Game::init() {
     loadAssets();
     initFpsText();
 
+    _conductor = NULL;
+
     gameLoop();
 }
+
+Conductor* Game::getConductor() { return _conductor; }
 
 void Game::gameLoop() {
     while (not isExiting()) {

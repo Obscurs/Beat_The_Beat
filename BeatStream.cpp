@@ -4,13 +4,9 @@
 
 #include "BeatStream.h"
 
-BeatStream::BeatStream(){
+BeatStream::BeatStream(Game* game) : mGame(game) {}
 
-}
-
-BeatStream::~BeatStream(){
-
-}
+BeatStream::~BeatStream() {}
 
 void BeatStream::readBeats(const std::string& filename) {
 
@@ -31,7 +27,6 @@ std::list<Beat*>::iterator BeatStream::getGoodBeats(){
 }
 
 void BeatStream::updateBeats() {
-    /*
     std::list<Beat*>::iterator it = mBeats.begin();
     Beat* beat = (*it);
 
@@ -39,8 +34,10 @@ void BeatStream::updateBeats() {
     while (beat->getCurrentState() == Beat::MISSED) ++it;
     mBeats.splice(mFailedBeats.end(),mFailedBeats, mBeats.begin(), it);
 
+    Conductor* conductor = mGame->getConductor();
+
     InputFlags flags   = getInputFlags();
-    sf::Time timestamp = Game::getConductor()->getCurrentTimestamp();
+    sf::Time timestamp = conductor->getCurrentTimestamp();
 
     // Update Active beats
     bool isActive = true;
@@ -51,7 +48,6 @@ void BeatStream::updateBeats() {
         isActive = beat->getCurrentState() == Beat::ACTIVE;
         ++it;
     }
-    */
 }
 
 InputFlags BeatStream::getInputFlags() const {

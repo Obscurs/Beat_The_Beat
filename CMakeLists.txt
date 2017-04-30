@@ -3,7 +3,7 @@ project(Beat_The_Beat)
 set(CMAKE_VERBOSE_MAKEFILE ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -std=c++11 -fopenmp -lGL -lGLU")
 
-set(SOURCE_FILES Main.cpp Game.cpp Game.h Inputs.cpp Inputs.h  MagicView.cpp MagicView.h Beat.cpp Beat.h BeatStream.cpp BeatStream.h GameObject.cpp GameObject.h InputFlags.cpp InputFlags.h)
+set(SOURCE_FILES Main.cpp Game.cpp Game.h Inputs.cpp Inputs.h  MagicView.cpp MagicView.h Beat.cpp Beat.h BeatStream.cpp BeatStream.h GameObject.cpp GameObject.h InputFlags.cpp InputFlags.h Conductor.cpp Conductor.h)
 set(EXECUTABLE_NAME "Beat_The_Beat")
 add_executable(${EXECUTABLE_NAME} ${SOURCE_FILES})
 
