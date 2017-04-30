@@ -16,5 +16,5 @@
 int main(int argc, char** argv)
 {
     Game *g = new Game();
-    g->Init();
+    g->init();
 }

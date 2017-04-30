@@ -13,9 +13,9 @@ public:
 	Inputs();
 	~Inputs();
 
-	void Update();
-	void KeyPressed(const sf::Keyboard::Key &code);
-	void KeyReleased(const sf::Keyboard::Key &code);
+	void update();
+	void event(const sf::Event& event);
+
 	enum Key {
 		UP = 0,
 		DOWN,
@@ -25,32 +25,33 @@ public:
 		CANCEL,
 		START,
 		SELECT,
-		NUM_KEYS
+		NUM_KEYS,
+		NO_KEY
 	};
 
 	/**
 		Returns true if the key k is beeing held down
 		@param k, the key to check
 	*/
-	bool KeyDown(Inputs::Key k) const;
+	bool keyDown(Inputs::Key k) const;
 
 	/**
 		Returns true if the key k is not beeing held down
 		@param k, the key to check
 	*/
-	bool KeyUp(Inputs::Key k) const;
+	bool keyUp(Inputs::Key k) const;
 
 	/**
 		Returns true if the key k has been pressed in the last update
 		@param k, the key to check
 	*/
-	bool KeyHit(Inputs::Key k) const;
+	bool keyHit(Inputs::Key k) const;
 
 	/**
 		Returns true if the key k has been released in the last update
 		@param k, the key to check
 	*/
-	bool KeyBreak(Inputs::Key k) const;
+	bool keyBreak(Inputs::Key k) const;
 
 private:
 	/**
@@ -60,4 +61,7 @@ private:
 
 	bool _lastKeyState[NUM_KEYS];
 	bool _currentKeyState[NUM_KEYS];
+
+	void keyPressed(const sf::Keyboard::Key &code);
+	void keyReleased(const sf::Keyboard::Key &code);
 };

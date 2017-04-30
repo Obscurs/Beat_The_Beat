@@ -7,18 +7,19 @@
 BeatStream::BeatStream(){
 
 }
+
 BeatStream::~BeatStream(){
 
 }
 
-void BeatStream::readBeats(const std::string& filename){
+void BeatStream::readBeats(const std::string& filename) {
 
 }
 
-void BeatStream::update(const sf::Time& deltatime) final{
+void BeatStream::update(const sf::Time& deltatime) {
 
 }
-void BeatStream::draw(sf::RenderTarget& target, sf::RenderStates states) const final{
+void BeatStream::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 
 }
 
@@ -30,6 +31,7 @@ std::list<Beat*>::iterator BeatStream::getGoodBeats(){
 }
 
 void BeatStream::updateBeats() {
+    /*
     std::list<Beat*>::iterator it = mBeats.begin();
     Beat* beat = (*it);
 
@@ -49,6 +51,7 @@ void BeatStream::updateBeats() {
         isActive = beat->getCurrentState() == Beat::ACTIVE;
         ++it;
     }
+    */
 }
 
 InputFlags BeatStream::getInputFlags() const {

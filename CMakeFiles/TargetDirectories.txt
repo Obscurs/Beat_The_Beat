@@ -1,0 +1,3 @@
+/home/fabio/Documents/Beat_The_Beat/CMakeFiles/edit_cache.dir
+/home/fabio/Documents/Beat_The_Beat/CMakeFiles/rebuild_cache.dir
+/home/fabio/Documents/Beat_The_Beat/CMakeFiles/Beat_The_Beat.dir

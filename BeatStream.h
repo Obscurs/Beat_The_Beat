@@ -9,6 +9,7 @@
 #include "Beat.h"
 #include "InputFlags.h"
 #include <list>
+
 class BeatStream : public GameObject {
 public:
     BeatStream();

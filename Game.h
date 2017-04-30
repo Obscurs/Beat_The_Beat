@@ -7,7 +7,7 @@ class Game {
 public:
     Game();
     ~Game();
-	void Init();
+	void init();
 
 private:	
 	enum GameState {
@@ -29,23 +29,23 @@ private:
 	int _fpsCount;
 	int _fpsCount2;
 
-	void GameLoop();
+	void gameLoop();
 
 	/***/
 
-	void Update();
-	void Draw();
-	void Event();
+	void update();
+	void draw();
+	void event();
 
-	bool IsExiting();
-	void ExitGame();
+	bool isExiting();
+	void exitGame();
 
-	void LoadAssets();
+	void loadAssets();
 
-	void InitFpsText();
-	void UpdateFpsText(const sf::Time& deltatime);
+	void initFpsText();
+	void updateFpsText(const sf::Time& deltatime);
 
-	void End();
+	void end();
 
 };
 #endif //BEAT_THE_BEAT_GAME_H

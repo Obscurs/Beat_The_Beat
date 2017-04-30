@@ -6,7 +6,7 @@ Game::Game() {
 
 Game::~Game() {}
 
-void Game::Init() {
+void Game::init() {
 
     if(_gameState != Uninitialized)
         return;
@@ -17,59 +17,54 @@ void Game::Init() {
     );
 
     _gameState= Game::ShowingMenu;
-    LoadAssets();
-    InitFpsText();
+    loadAssets();
+    initFpsText();
 
-    GameLoop();
+    gameLoop();
 }
 
-void Game::GameLoop() {
-    while (not IsExiting()) {
-        Event();
-        Update();
-        Draw();
+void Game::gameLoop() {
+    while (not isExiting()) {
+        event();
+        update();
+        draw();
     }
 }
 
-void Game::Update() {
+void Game::update() {
     sf::Time deltatime = _clock.restart();
-    _inputs.Update();
-    UpdateFpsText(deltatime);
+    _inputs.update();
+    updateFpsText(deltatime);
 }
 
-void Game::Draw() {
+void Game::draw() {
     _window.clear(sf::Color::Green);
     _window.draw(_fpsText);
     _window.display();
 }
 
-void Game::Event() {
+void Game::event() {
     sf::Event event;
 
     while(_window.pollEvent(event)) {
-        if (event.type == sf::Event::Closed) {
-            End();
-        }
-        else if (event.type == sf::Event::KeyPressed) {
-            _inputs.KeyPressed(event.key.code);
-        }
-        else if (event.type == sf::Event::KeyReleased) {
-            _inputs.KeyReleased(event.key.code);
-        }
+        if (event.type == sf::Event::Closed)
+            end();
+        
+        _inputs.event(event);
     }
 }
 
-bool Game::IsExiting() { return _gameState == Game::Exiting; }
+bool Game::isExiting() { return _gameState == Game::Exiting; }
 
-void Game::ExitGame() { _gameState = Exiting; }
+void Game::exitGame() { _gameState = Exiting; }
 
-void  Game::LoadAssets() {
+void  Game::loadAssets() {
     if (!_font.loadFromFile("resources/font1.ttf")) {
         std::cout << "font error" << std::endl;
     }
 }
 
-void Game::InitFpsText() {
+void Game::initFpsText() {
     _fpsText.setCharacterSize(24);
     _fpsText.setColor(sf::Color::Red);
     _fpsText.setStyle(sf::Text::Bold | sf::Text::Underlined);
@@ -84,13 +79,13 @@ void Game::InitFpsText() {
     _fpsCount2 = 0;
 }
 
-void Game::UpdateFpsText(const sf::Time& deltatime) {
+void Game::updateFpsText(const sf::Time& deltatime) {
     float seconds = deltatime.asSeconds();
-    float fps = 1.f / seconds;
+    float fps     = 1.f / seconds;
     
-    _fpsCount += 1;
+    _fpsCount  += 1;
     _fpsCount2 += fps;
-    _fpsTimer += seconds;
+    _fpsTimer  += seconds;
 
     sf::View currentView    = _window.getView();
     sf::Vector2f centerView = currentView.getCenter();
@@ -105,13 +100,13 @@ void Game::UpdateFpsText(const sf::Time& deltatime) {
         sf::String str(string);
         _fpsText.setString(str);
 
-        _fpsCount = 0;
+        _fpsCount  = 0;
         _fpsCount2 = 0;
-        _fpsTimer = 0;
+        _fpsTimer  = 0;
     }
 }
 
-void Game::End() {
+void Game::end() {
     _window.close();
     _gameState = Exiting;
 

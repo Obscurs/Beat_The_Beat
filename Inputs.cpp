@@ -18,14 +18,32 @@ Inputs::Inputs() {
 
 Inputs::~Inputs() {}
 
-void Inputs::Update() {
+void Inputs::update() {
 	// Update _lastKeyState
 	memcpy(_lastKeyState, _currentKeyState, sizeof(_currentKeyState));
-
-
 }
 
-void Inputs::KeyPressed(const sf::Keyboard::Key &code) {
+void Inputs::event(const sf::Event& event) {
+	if (event.type == sf::Event::KeyPressed)
+		keyPressed(event.key.code);
+
+	else if (event.type == sf::Event::KeyReleased)
+		keyReleased(event.key.code);
+}
+
+
+bool Inputs::keyDown(Inputs::Key k) const { return _currentKeyState[k]; }
+bool Inputs::keyUp(Inputs::Key k)   const { return not _currentKeyState[k]; }
+
+bool Inputs::keyHit(Inputs::Key k) const {
+	return not _lastKeyState[k] and _currentKeyState[k];
+}
+
+bool Inputs::keyBreak(Inputs::Key k) const {
+	return _lastKeyState[k] and not _currentKeyState[k];
+}
+
+void Inputs::keyPressed(const sf::Keyboard::Key &code) {
 
 	// Update _currentKeyState
 	unsigned int i;
@@ -38,7 +56,8 @@ void Inputs::KeyPressed(const sf::Keyboard::Key &code) {
 
 	}
 }
-void Inputs::KeyReleased(const sf::Keyboard::Key &code) {
+
+void Inputs::keyReleased(const sf::Keyboard::Key &code) {
 
 	// Update _currentKeyState
 	unsigned int i;
@@ -51,16 +70,3 @@ void Inputs::KeyReleased(const sf::Keyboard::Key &code) {
 
 	}
 }
-
-
-bool Inputs::KeyDown(Inputs::Key k) const { return _currentKeyState[k]; }
-bool Inputs::KeyUp(Inputs::Key k)   const { return not _currentKeyState[k]; }
-
-bool Inputs::KeyHit(Inputs::Key k) const {
-	return not _lastKeyState[k] and _currentKeyState[k];
-}
-
-bool Inputs::KeyBreak(Inputs::Key k) const {
-	return _lastKeyState[k] and not _currentKeyState[k];
-}
-

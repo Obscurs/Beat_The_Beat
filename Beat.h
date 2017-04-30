@@ -8,17 +8,25 @@
 #include "Utils.h"
 #include "Inputs.h"
 #include "InputFlags.h"
+
 class Beat {
 public:
-
-
     Beat(sf::Time& timespamp, InputFlags& flags);
     ~Beat();
 
-    sf::Time getTimestamp() const;
-    InputFlags getInputFlags() const;
+    enum BeatState {
+        INACTIVE,       // mTimestamp > CurrentTime + TOLERANCE
+        ACTIVE,         // mTimestamp <= CurrentTime + TOLERANCE and not 
+                        // (GOOD or MISSED)
+        GOOD,
+        MISSED          // mTimestamp < CurrentTime + TOLERANCE and not GOOD
+    };
+
+    sf::Time    getTimestamp() const;
+    InputFlags  getInputFlags() const;
     Inputs::Key getKey() const;
-    BeatState getCurrentState() const;
+    
+    Beat::BeatState getCurrentState() const;
 
 
     /**
@@ -29,21 +37,16 @@ public:
     */
     void update(const sf::Time& current_time, InputFlags& flags);
 
-    enum BeatState {
-        INACTIVE,       // mTimestamp > CurrentTime + TOLERANCE
-        ACTIVE,         // mTimestamp <= CurrentTime + TOLERANCE and not (GOOD or MISSED)
-        GOOD,
-        MISSED          // mTimestamp < CurrentTime + TOLERANCE and not GOOD
-    };
-
 
 private:
     /**
-		if currentTime is between mTimesamp and mTimestamp + tolerance and mState == INACTIVE, set mState to ACTIVE
-		@param currentTime, the current time of the beatStream
+		if currentTime is between mTimesamp and mTimestamp + tolerance and 
+        mState == INACTIVE, set mState to ACTIVE
+		
+        @param currentTime, the current time of the beatStream
 	*/
     void checkActive(const sf::Time &currentTime);
-    static const sf::Time TOLERANCE = sf::seconds(1.0f);
+    static const sf::Time TOLERANCE;
 
     const sf::Time   mTimestamp;
     const InputFlags mFlags;

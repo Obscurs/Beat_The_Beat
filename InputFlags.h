@@ -10,6 +10,7 @@
 
 class InputFlags {
 public:
+    InputFlags();
     InputFlags(const std::vector<Inputs::Key> &keys);
     ~InputFlags();
 
@@ -20,7 +21,9 @@ public:
     std::vector<Inputs::Key> &getTrueFlags(std::vector<Inputs::Key> &trueFlags);
 
     /**
-		Check if all k true flags are true on mFlags, if true returns the first coincident key else return NULL
+		Check if all k true flags are true on mFlags, if true returns the first 
+        coincident key else return NULL
+        
 		@param flags, flags to compare
 	*/
     Inputs::Key compareFlags(const std::vector<Inputs::Key> &flags) const;

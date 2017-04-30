@@ -3,11 +3,15 @@
 //
 
 #include "InputFlags.h"
+
+InputFlags::InputFlags() {}
+
 InputFlags::InputFlags(const std::vector<Inputs::Key> &keys) {
     for(int i = 0; i < keys.size(); i++){
         mFlags[keys[i]] = false;
     }
 }
+
 InputFlags::~InputFlags(){
 
 }
@@ -21,11 +25,14 @@ void InputFlags::setFlagsToFalse(){
     for (std::map<Inputs::Key, bool>::iterator it=mFlags.begin(); it!=mFlags.end(); ++it)
         it->second = false;
 }
-Inputs::Key InputFlags::compareFlags(const std::vector<Inputs::Key> &flags) const{
-    Inputs::Key key = NULL;
+
+Inputs::Key InputFlags::compareFlags(const std::vector<Inputs::Key> &flags) const {
+    std::map<Inputs::Key, bool> tempFlags = mFlags;
+    Inputs::Key key = Inputs::NO_KEY;
+
     for(int i = 0; i < flags.size(); i++){
-        if(mFlags[flags[i]]) key = flags[i];
-        else return NULL;
+        if(tempFlags[flags[i]]) key = flags[i];
+        else return Inputs::NO_KEY;
     }
     return key;
 }
