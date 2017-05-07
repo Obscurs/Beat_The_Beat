@@ -7,7 +7,7 @@
 
 
 #include "Inputs.h"
-
+#include "Game.h"
 class InputFlags {
 public:
     InputFlags();
@@ -27,6 +27,8 @@ public:
 		@param flags, flags to compare
 	*/
     Inputs::Key compareFlags(const std::vector<Inputs::Key> &flags) const;
+
+
 private:
     /**
        set all flags to false

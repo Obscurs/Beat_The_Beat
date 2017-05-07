@@ -1,8 +1,20 @@
 #include "Game.h"
 
+Game* Game::_instance = NULL;
+
+Game* Game::getInstance() {
+    if (Game::_instance == NULL)
+        Game::_instance = new Game();
+
+    return Game::_instance;
+}
+
 Game::Game() {
     _gameState = Uninitialized;
 }
+
+Game::Game(const Game&) { }
+Game& Game::operator=(const Game&) { return *this; }
 
 Game::~Game() {}
 
@@ -20,12 +32,12 @@ void Game::init() {
     loadAssets();
     initFpsText();
 
-    _conductor = NULL;
-
+    _conductor = new Conductor("resources/cave-story.ogg");
     gameLoop();
 }
 
 Conductor* Game::getConductor() { return _conductor; }
+Inputs* Game::getInputs() { return &_inputs; }
 
 void Game::gameLoop() {
     while (not isExiting()) {
@@ -113,6 +125,8 @@ void Game::updateFpsText(const sf::Time& deltatime) {
 void Game::end() {
     _window.close();
     _gameState = Exiting;
+
+    if( _conductor !=NULL) delete _conductor;
 
     std::cout << "bye" << std::endl;
 }

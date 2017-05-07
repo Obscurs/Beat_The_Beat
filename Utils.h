@@ -13,6 +13,7 @@
 #include <list>
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 
 /* Global constants */
 static const unsigned int SCREEN_WIDTH  = 1024;

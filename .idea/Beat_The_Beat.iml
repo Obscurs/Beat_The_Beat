@@ -6,12 +6,14 @@
       <sourceFolder url="file://$MODULE_DIR$/InputFlags.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/GameObject.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Inputs.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Beat.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Conductor.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Conductor.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Main.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Game.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Beat.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/MagicView.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Inputs.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Game.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/InputFlags.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BeatStream.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BeatStream.cpp" isTestSource="false" />

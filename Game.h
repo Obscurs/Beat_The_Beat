@@ -4,17 +4,25 @@
 #include "Utils.h"
 #include "Inputs.h"
 #include "Conductor.h"
+#include "BeatStream.h"
 
 class Game {
 public:
-    Game();
+	static Game* getInstance();
     ~Game();
 
 	void init();
 
 	Conductor* getConductor();
+	Inputs* getInputs();
 
-private:	
+private:
+	static Game* _instance;
+	Game();
+	Game(const Game&);
+	Game& operator=(const Game&);
+
+
 	enum GameState {
 		Uninitialized,
 		ShowingMenu,
@@ -30,8 +38,11 @@ private:
 
 	Conductor* _conductor;
 
+	BeatStream _beatStream;
+
 	sf::Font _font;
 	sf::Text _fpsText;
+
 	float    _fpsTimer;
 	int      _fpsCount;
 	int      _fpsCount2;

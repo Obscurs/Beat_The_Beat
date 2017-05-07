@@ -7,7 +7,9 @@ Conductor::Conductor(const std::string& song) {
 		mSong.play();
 }
 
-Conductor::~Conductor() {}
+Conductor::~Conductor() {
+	mSong.stop();
+}
 
 sf::Time Conductor::getCurrentTimestamp() const {
 	return mSong.getPlayingOffset();

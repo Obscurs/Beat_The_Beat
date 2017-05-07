@@ -4,7 +4,12 @@
 
 #include "InputFlags.h"
 
-InputFlags::InputFlags() {}
+InputFlags::InputFlags() {
+    for(int i = 0; i < Inputs::NUM_KEYS; i++){
+        Inputs::Key index=static_cast<Inputs::Key >(i);
+        mFlags[index] = Game::getInstance()->getInputs()->keyHit(index);
+    }
+}
 
 InputFlags::InputFlags(const std::vector<Inputs::Key> &keys) {
     for(int i = 0; i < keys.size(); i++){

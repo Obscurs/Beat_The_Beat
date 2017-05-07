@@ -4,7 +4,7 @@
 
 #include "BeatStream.h"
 
-BeatStream::BeatStream(Game* game) : mGame(game) {}
+BeatStream::BeatStream()  {}
 
 BeatStream::~BeatStream() {}
 
@@ -34,7 +34,7 @@ void BeatStream::updateBeats() {
     while (beat->getCurrentState() == Beat::MISSED) ++it;
     mBeats.splice(mFailedBeats.end(),mFailedBeats, mBeats.begin(), it);
 
-    Conductor* conductor = mGame->getConductor();
+    Conductor* conductor = Game::getInstance()->getConductor();
 
     InputFlags flags   = getInputFlags();
     sf::Time timestamp = conductor->getCurrentTimestamp();
