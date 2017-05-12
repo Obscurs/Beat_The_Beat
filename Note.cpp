@@ -2,6 +2,10 @@
 
 const sf::Time Note::TOLERANCE = sf::seconds(0.15f);
 
+const float Note::VERTICAL_POS = SCREEN_HEIGHT / 2;
+const float Note::FINAL_POS = 0.0f;
+const float Note::VEL = 0.5f; // pixel/ms
+
 Note::Note(const Conductor* conductor,
 		   const sf::Time& timestamp,
 		   const std::vector<bool>& expectedInput)
@@ -19,7 +23,18 @@ void Note::onKeyPressed(Inputs::Key key) {
 }
 
 void Note::draw(sf::RenderTarget& target, sf::RenderStates states) const {
-	// TODO
+	sf::CircleShape sprite(5.0f);
+	sprite.setFillColor(sf::Color::Blue);
+
+	const sf::Time currentOffset  = _conductor->getCurrentTimestamp();
+	const sf::Time timeDifference = _timestamp - currentOffset;
+
+	float x = Note::FINAL_POS + Note::VEL * (timeDifference.asMilliseconds());
+	float y = Note::VERTICAL_POS;
+
+	sprite.setPosition(x, y);
+
+	target.draw(sprite);
 }
 
 Note::NoteState Note::getState() const {

@@ -2,6 +2,14 @@
 
 Stave::Stave() {
 	_conductor = new Conductor("resources/cave-story.ogg");
+
+	addNote(new Note(_conductor, sf::seconds(1.0f), {}));
+	addNote(new Note(_conductor, sf::seconds(2.0f), {}));
+	addNote(new Note(_conductor, sf::seconds(3.0f), {}));
+	addNote(new Note(_conductor, sf::seconds(4.0f), {}));
+	addNote(new Note(_conductor, sf::seconds(5.0f), {}));
+	addNote(new Note(_conductor, sf::seconds(5.5f), {}));
+	addNote(new Note(_conductor, sf::seconds(6.0f), {}));
 }
 
 Stave::~Stave() {
@@ -44,7 +52,7 @@ void Stave::update(const sf::Time& deltatime) {
 		Remove all notes that have already expired
 	*/
 
-	const sf::Time currentOffset = _conductor->getCurrentTimestamp();
+/*	const sf::Time currentOffset = _conductor->getCurrentTimestamp();
 
 	std::list<Note*>::iterator it = _notes.begin();
 	bool noActiveFound = false;
@@ -60,10 +68,13 @@ void Stave::update(const sf::Time& deltatime) {
 	if (noActiveFound) {
 		_notes.erase(_notes.begin(), it);
 	}
+*/
 }
 
 void Stave::draw(sf::RenderTarget& target, sf::RenderStates states) const {
-	// TODO
+	for (Note* note : _notes) {
+		target.draw(*note);
+	}
 }
 
 void Stave::addNote(Note* note) {

@@ -68,6 +68,10 @@ public:
 private:
 	static const sf::Time TOLERANCE;
 
+	static const float VERTICAL_POS;
+	static const float FINAL_POS;
+	static const float VEL;
+
 	const Conductor* _conductor;
 	const sf::Time _timestamp;
 	const std::vector<bool> _expectedInput;
