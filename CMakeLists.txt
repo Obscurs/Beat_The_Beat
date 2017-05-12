@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.5)
 project(Beat_The_Beat)
 set(CMAKE_VERBOSE_MAKEFILE ON)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -std=c++11 -fopenmp -lGL -lGLU")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -std=c++11")
 
-set(SOURCE_FILES Main.cpp Game.cpp Game.h Inputs.cpp Inputs.h  MagicView.cpp MagicView.h Beat.cpp Beat.h BeatStream.cpp BeatStream.h GameObject.cpp GameObject.h InputFlags.cpp InputFlags.h Conductor.cpp Conductor.h)
+set(SOURCE_FILES Main.cpp Game.cpp Game.h Inputs.cpp Inputs.h  MagicView.cpp MagicView.h Note.cpp Note.h Stave.cpp Stave.h GameObject.cpp GameObject.h Conductor.cpp Conductor.h)
 set(EXECUTABLE_NAME "Beat_The_Beat")
 add_executable(${EXECUTABLE_NAME} ${SOURCE_FILES})
 

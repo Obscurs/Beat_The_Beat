@@ -11,62 +11,13 @@ const sf::Keyboard::Key Inputs::_keyMap[NUM_KEYS] = {
 	sf::Keyboard::BackSpace
 };
 
-Inputs::Inputs() {
-	memset(_lastKeyState, 0, sizeof(_lastKeyState));
-	memset(_currentKeyState, 0, sizeof(_currentKeyState));
-}
+Inputs::Key Inputs::SfmlToGameKey(sf::Keyboard::Key key) {
 
-Inputs::~Inputs() {}
-
-void Inputs::update() {
-	// Update _lastKeyState
-	memcpy(_lastKeyState, _currentKeyState, sizeof(_currentKeyState));
-}
-
-void Inputs::event(const sf::Event& event) {
-	if (event.type == sf::Event::KeyPressed)
-		keyPressed(event.key.code);
-
-	else if (event.type == sf::Event::KeyReleased)
-		keyReleased(event.key.code);
-}
-
-
-bool Inputs::keyDown(Inputs::Key k) const { return _currentKeyState[k]; }
-bool Inputs::keyUp(Inputs::Key k)   const { return not _currentKeyState[k]; }
-
-bool Inputs::keyHit(Inputs::Key k) const {
-	return not _lastKeyState[k] and _currentKeyState[k];
-}
-
-bool Inputs::keyBreak(Inputs::Key k) const {
-	return _lastKeyState[k] and not _currentKeyState[k];
-}
-
-void Inputs::keyPressed(const sf::Keyboard::Key &code) {
-
-	// Update _currentKeyState
 	unsigned int i;
 	for (i = 0; i < NUM_KEYS; ++i) {
-		Inputs::Key key = (Inputs::Key) i;
-		sf::Keyboard::Key keyboard_key = _keyMap[key];
-		if(code == keyboard_key) {
-			_currentKeyState[key] = true;
-		}
-
+		if (Inputs::_keyMap[i] == key)
+			return static_cast<Inputs::Key> (i);
 	}
-}
 
-void Inputs::keyReleased(const sf::Keyboard::Key &code) {
-
-	// Update _currentKeyState
-	unsigned int i;
-	for (i = 0; i < NUM_KEYS; ++i) {
-		Inputs::Key key = (Inputs::Key) i;
-		sf::Keyboard::Key keyboard_key = _keyMap[key];
-		if(code == keyboard_key) {
-			_currentKeyState[key] = false;
-		}
-
-	}
+	return Inputs::NO_KEY;
 }

@@ -3,8 +3,7 @@
 
 #include "Utils.h"
 #include "Inputs.h"
-#include "Conductor.h"
-#include "BeatStream.h"
+#include "Stave.h"
 
 class Game {
 public:
@@ -13,15 +12,11 @@ public:
 
 	void init();
 
-	Conductor* getConductor();
-	Inputs* getInputs();
-
 private:
 	static Game* _instance;
 	Game();
 	Game(const Game&);
 	Game& operator=(const Game&);
-
 
 	enum GameState {
 		Uninitialized,
@@ -34,11 +29,7 @@ private:
 
 	sf::Clock _clock;
 
-	Inputs _inputs;
-
-	Conductor* _conductor;
-
-	BeatStream _beatStream;
+	Stave _stave;
 
 	sf::Font _font;
 	sf::Text _fpsText;

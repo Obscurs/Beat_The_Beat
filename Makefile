@@ -126,60 +126,6 @@ Beat_The_Beat/fast:
 	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/build
 .PHONY : Beat_The_Beat/fast
 
-Beat.o: Beat.cpp.o
-
-.PHONY : Beat.o
-
-# target to build an object file
-Beat.cpp.o:
-	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/Beat.cpp.o
-.PHONY : Beat.cpp.o
-
-Beat.i: Beat.cpp.i
-
-.PHONY : Beat.i
-
-# target to preprocess a source file
-Beat.cpp.i:
-	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/Beat.cpp.i
-.PHONY : Beat.cpp.i
-
-Beat.s: Beat.cpp.s
-
-.PHONY : Beat.s
-
-# target to generate assembly for a file
-Beat.cpp.s:
-	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/Beat.cpp.s
-.PHONY : Beat.cpp.s
-
-BeatStream.o: BeatStream.cpp.o
-
-.PHONY : BeatStream.o
-
-# target to build an object file
-BeatStream.cpp.o:
-	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.o
-.PHONY : BeatStream.cpp.o
-
-BeatStream.i: BeatStream.cpp.i
-
-.PHONY : BeatStream.i
-
-# target to preprocess a source file
-BeatStream.cpp.i:
-	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.i
-.PHONY : BeatStream.cpp.i
-
-BeatStream.s: BeatStream.cpp.s
-
-.PHONY : BeatStream.s
-
-# target to generate assembly for a file
-BeatStream.cpp.s:
-	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.s
-.PHONY : BeatStream.cpp.s
-
 Conductor.o: Conductor.cpp.o
 
 .PHONY : Conductor.o
@@ -260,33 +206,6 @@ GameObject.s: GameObject.cpp.s
 GameObject.cpp.s:
 	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/GameObject.cpp.s
 .PHONY : GameObject.cpp.s
-
-InputFlags.o: InputFlags.cpp.o
-
-.PHONY : InputFlags.o
-
-# target to build an object file
-InputFlags.cpp.o:
-	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/InputFlags.cpp.o
-.PHONY : InputFlags.cpp.o
-
-InputFlags.i: InputFlags.cpp.i
-
-.PHONY : InputFlags.i
-
-# target to preprocess a source file
-InputFlags.cpp.i:
-	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/InputFlags.cpp.i
-.PHONY : InputFlags.cpp.i
-
-InputFlags.s: InputFlags.cpp.s
-
-.PHONY : InputFlags.s
-
-# target to generate assembly for a file
-InputFlags.cpp.s:
-	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/InputFlags.cpp.s
-.PHONY : InputFlags.cpp.s
 
 Inputs.o: Inputs.cpp.o
 
@@ -369,6 +288,60 @@ Main.cpp.s:
 	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
+Note.o: Note.cpp.o
+
+.PHONY : Note.o
+
+# target to build an object file
+Note.cpp.o:
+	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/Note.cpp.o
+.PHONY : Note.cpp.o
+
+Note.i: Note.cpp.i
+
+.PHONY : Note.i
+
+# target to preprocess a source file
+Note.cpp.i:
+	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/Note.cpp.i
+.PHONY : Note.cpp.i
+
+Note.s: Note.cpp.s
+
+.PHONY : Note.s
+
+# target to generate assembly for a file
+Note.cpp.s:
+	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/Note.cpp.s
+.PHONY : Note.cpp.s
+
+Stave.o: Stave.cpp.o
+
+.PHONY : Stave.o
+
+# target to build an object file
+Stave.cpp.o:
+	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/Stave.cpp.o
+.PHONY : Stave.cpp.o
+
+Stave.i: Stave.cpp.i
+
+.PHONY : Stave.i
+
+# target to preprocess a source file
+Stave.cpp.i:
+	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/Stave.cpp.i
+.PHONY : Stave.cpp.i
+
+Stave.s: Stave.cpp.s
+
+.PHONY : Stave.s
+
+# target to generate assembly for a file
+Stave.cpp.s:
+	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/Stave.cpp.s
+.PHONY : Stave.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -378,12 +351,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Beat_The_Beat"
-	@echo "... Beat.o"
-	@echo "... Beat.i"
-	@echo "... Beat.s"
-	@echo "... BeatStream.o"
-	@echo "... BeatStream.i"
-	@echo "... BeatStream.s"
 	@echo "... Conductor.o"
 	@echo "... Conductor.i"
 	@echo "... Conductor.s"
@@ -393,9 +360,6 @@ help:
 	@echo "... GameObject.o"
 	@echo "... GameObject.i"
 	@echo "... GameObject.s"
-	@echo "... InputFlags.o"
-	@echo "... InputFlags.i"
-	@echo "... InputFlags.s"
 	@echo "... Inputs.o"
 	@echo "... Inputs.i"
 	@echo "... Inputs.s"
@@ -405,6 +369,12 @@ help:
 	@echo "... Main.o"
 	@echo "... Main.i"
 	@echo "... Main.s"
+	@echo "... Note.o"
+	@echo "... Note.i"
+	@echo "... Note.s"
+	@echo "... Stave.o"
+	@echo "... Stave.i"
+	@echo "... Stave.s"
 .PHONY : help
 
 

@@ -32,12 +32,8 @@ void Game::init() {
     loadAssets();
     initFpsText();
 
-    _conductor = new Conductor("resources/cave-story.ogg");
     gameLoop();
 }
-
-Conductor* Game::getConductor() { return _conductor; }
-Inputs* Game::getInputs() { return &_inputs; }
 
 void Game::gameLoop() {
     while (not isExiting()) {
@@ -49,12 +45,13 @@ void Game::gameLoop() {
 
 void Game::update() {
     sf::Time deltatime = _clock.restart();
-    _inputs.update();
+    _stave.update(deltatime),
     updateFpsText(deltatime);
 }
 
 void Game::draw() {
     _window.clear(sf::Color::Green);
+    _window.draw(_stave);
     _window.draw(_fpsText);
     _window.display();
 }
@@ -65,8 +62,13 @@ void Game::event() {
     while(_window.pollEvent(event)) {
         if (event.type == sf::Event::Closed)
             end();
+
+        if (event.type == sf::Event::KeyPressed) {
+            Inputs::Key key = Inputs::SfmlToGameKey(event.key.code);
+
+            _stave.onKeyPressed(key);
+        }
         
-        _inputs.event(event);
     }
 }
 
@@ -125,8 +127,6 @@ void Game::updateFpsText(const sf::Time& deltatime) {
 void Game::end() {
     _window.close();
     _gameState = Exiting;
-
-    if( _conductor !=NULL) delete _conductor;
 
     std::cout << "bye" << std::endl;
 }

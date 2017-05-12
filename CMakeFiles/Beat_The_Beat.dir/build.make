@@ -156,52 +156,52 @@ CMakeFiles/Beat_The_Beat.dir/MagicView.cpp.o.provides: CMakeFiles/Beat_The_Beat.
 CMakeFiles/Beat_The_Beat.dir/MagicView.cpp.o.provides.build: CMakeFiles/Beat_The_Beat.dir/MagicView.cpp.o
 
 
-CMakeFiles/Beat_The_Beat.dir/Beat.cpp.o: CMakeFiles/Beat_The_Beat.dir/flags.make
-CMakeFiles/Beat_The_Beat.dir/Beat.cpp.o: Beat.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fabio/Documents/Beat_The_Beat/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Beat_The_Beat.dir/Beat.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Beat_The_Beat.dir/Beat.cpp.o -c /home/fabio/Documents/Beat_The_Beat/Beat.cpp
+CMakeFiles/Beat_The_Beat.dir/Note.cpp.o: CMakeFiles/Beat_The_Beat.dir/flags.make
+CMakeFiles/Beat_The_Beat.dir/Note.cpp.o: Note.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fabio/Documents/Beat_The_Beat/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Beat_The_Beat.dir/Note.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Beat_The_Beat.dir/Note.cpp.o -c /home/fabio/Documents/Beat_The_Beat/Note.cpp
 
-CMakeFiles/Beat_The_Beat.dir/Beat.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Beat_The_Beat.dir/Beat.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fabio/Documents/Beat_The_Beat/Beat.cpp > CMakeFiles/Beat_The_Beat.dir/Beat.cpp.i
+CMakeFiles/Beat_The_Beat.dir/Note.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Beat_The_Beat.dir/Note.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fabio/Documents/Beat_The_Beat/Note.cpp > CMakeFiles/Beat_The_Beat.dir/Note.cpp.i
 
-CMakeFiles/Beat_The_Beat.dir/Beat.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Beat_The_Beat.dir/Beat.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fabio/Documents/Beat_The_Beat/Beat.cpp -o CMakeFiles/Beat_The_Beat.dir/Beat.cpp.s
+CMakeFiles/Beat_The_Beat.dir/Note.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Beat_The_Beat.dir/Note.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fabio/Documents/Beat_The_Beat/Note.cpp -o CMakeFiles/Beat_The_Beat.dir/Note.cpp.s
 
-CMakeFiles/Beat_The_Beat.dir/Beat.cpp.o.requires:
+CMakeFiles/Beat_The_Beat.dir/Note.cpp.o.requires:
 
-.PHONY : CMakeFiles/Beat_The_Beat.dir/Beat.cpp.o.requires
+.PHONY : CMakeFiles/Beat_The_Beat.dir/Note.cpp.o.requires
 
-CMakeFiles/Beat_The_Beat.dir/Beat.cpp.o.provides: CMakeFiles/Beat_The_Beat.dir/Beat.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/Beat.cpp.o.provides.build
-.PHONY : CMakeFiles/Beat_The_Beat.dir/Beat.cpp.o.provides
+CMakeFiles/Beat_The_Beat.dir/Note.cpp.o.provides: CMakeFiles/Beat_The_Beat.dir/Note.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/Note.cpp.o.provides.build
+.PHONY : CMakeFiles/Beat_The_Beat.dir/Note.cpp.o.provides
 
-CMakeFiles/Beat_The_Beat.dir/Beat.cpp.o.provides.build: CMakeFiles/Beat_The_Beat.dir/Beat.cpp.o
+CMakeFiles/Beat_The_Beat.dir/Note.cpp.o.provides.build: CMakeFiles/Beat_The_Beat.dir/Note.cpp.o
 
 
-CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.o: CMakeFiles/Beat_The_Beat.dir/flags.make
-CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.o: BeatStream.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fabio/Documents/Beat_The_Beat/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.o -c /home/fabio/Documents/Beat_The_Beat/BeatStream.cpp
+CMakeFiles/Beat_The_Beat.dir/Stave.cpp.o: CMakeFiles/Beat_The_Beat.dir/flags.make
+CMakeFiles/Beat_The_Beat.dir/Stave.cpp.o: Stave.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fabio/Documents/Beat_The_Beat/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Beat_The_Beat.dir/Stave.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Beat_The_Beat.dir/Stave.cpp.o -c /home/fabio/Documents/Beat_The_Beat/Stave.cpp
 
-CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fabio/Documents/Beat_The_Beat/BeatStream.cpp > CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.i
+CMakeFiles/Beat_The_Beat.dir/Stave.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Beat_The_Beat.dir/Stave.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fabio/Documents/Beat_The_Beat/Stave.cpp > CMakeFiles/Beat_The_Beat.dir/Stave.cpp.i
 
-CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fabio/Documents/Beat_The_Beat/BeatStream.cpp -o CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.s
+CMakeFiles/Beat_The_Beat.dir/Stave.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Beat_The_Beat.dir/Stave.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fabio/Documents/Beat_The_Beat/Stave.cpp -o CMakeFiles/Beat_The_Beat.dir/Stave.cpp.s
 
-CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.o.requires:
+CMakeFiles/Beat_The_Beat.dir/Stave.cpp.o.requires:
 
-.PHONY : CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.o.requires
+.PHONY : CMakeFiles/Beat_The_Beat.dir/Stave.cpp.o.requires
 
-CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.o.provides: CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.o.provides.build
-.PHONY : CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.o.provides
+CMakeFiles/Beat_The_Beat.dir/Stave.cpp.o.provides: CMakeFiles/Beat_The_Beat.dir/Stave.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/Stave.cpp.o.provides.build
+.PHONY : CMakeFiles/Beat_The_Beat.dir/Stave.cpp.o.provides
 
-CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.o.provides.build: CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.o
+CMakeFiles/Beat_The_Beat.dir/Stave.cpp.o.provides.build: CMakeFiles/Beat_The_Beat.dir/Stave.cpp.o
 
 
 CMakeFiles/Beat_The_Beat.dir/GameObject.cpp.o: CMakeFiles/Beat_The_Beat.dir/flags.make
@@ -228,33 +228,9 @@ CMakeFiles/Beat_The_Beat.dir/GameObject.cpp.o.provides: CMakeFiles/Beat_The_Beat
 CMakeFiles/Beat_The_Beat.dir/GameObject.cpp.o.provides.build: CMakeFiles/Beat_The_Beat.dir/GameObject.cpp.o
 
 
-CMakeFiles/Beat_The_Beat.dir/InputFlags.cpp.o: CMakeFiles/Beat_The_Beat.dir/flags.make
-CMakeFiles/Beat_The_Beat.dir/InputFlags.cpp.o: InputFlags.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fabio/Documents/Beat_The_Beat/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Beat_The_Beat.dir/InputFlags.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Beat_The_Beat.dir/InputFlags.cpp.o -c /home/fabio/Documents/Beat_The_Beat/InputFlags.cpp
-
-CMakeFiles/Beat_The_Beat.dir/InputFlags.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Beat_The_Beat.dir/InputFlags.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fabio/Documents/Beat_The_Beat/InputFlags.cpp > CMakeFiles/Beat_The_Beat.dir/InputFlags.cpp.i
-
-CMakeFiles/Beat_The_Beat.dir/InputFlags.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Beat_The_Beat.dir/InputFlags.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fabio/Documents/Beat_The_Beat/InputFlags.cpp -o CMakeFiles/Beat_The_Beat.dir/InputFlags.cpp.s
-
-CMakeFiles/Beat_The_Beat.dir/InputFlags.cpp.o.requires:
-
-.PHONY : CMakeFiles/Beat_The_Beat.dir/InputFlags.cpp.o.requires
-
-CMakeFiles/Beat_The_Beat.dir/InputFlags.cpp.o.provides: CMakeFiles/Beat_The_Beat.dir/InputFlags.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/InputFlags.cpp.o.provides.build
-.PHONY : CMakeFiles/Beat_The_Beat.dir/InputFlags.cpp.o.provides
-
-CMakeFiles/Beat_The_Beat.dir/InputFlags.cpp.o.provides.build: CMakeFiles/Beat_The_Beat.dir/InputFlags.cpp.o
-
-
 CMakeFiles/Beat_The_Beat.dir/Conductor.cpp.o: CMakeFiles/Beat_The_Beat.dir/flags.make
 CMakeFiles/Beat_The_Beat.dir/Conductor.cpp.o: Conductor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fabio/Documents/Beat_The_Beat/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Beat_The_Beat.dir/Conductor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fabio/Documents/Beat_The_Beat/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Beat_The_Beat.dir/Conductor.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Beat_The_Beat.dir/Conductor.cpp.o -c /home/fabio/Documents/Beat_The_Beat/Conductor.cpp
 
 CMakeFiles/Beat_The_Beat.dir/Conductor.cpp.i: cmake_force
@@ -282,10 +258,9 @@ Beat_The_Beat_OBJECTS = \
 "CMakeFiles/Beat_The_Beat.dir/Game.cpp.o" \
 "CMakeFiles/Beat_The_Beat.dir/Inputs.cpp.o" \
 "CMakeFiles/Beat_The_Beat.dir/MagicView.cpp.o" \
-"CMakeFiles/Beat_The_Beat.dir/Beat.cpp.o" \
-"CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.o" \
+"CMakeFiles/Beat_The_Beat.dir/Note.cpp.o" \
+"CMakeFiles/Beat_The_Beat.dir/Stave.cpp.o" \
 "CMakeFiles/Beat_The_Beat.dir/GameObject.cpp.o" \
-"CMakeFiles/Beat_The_Beat.dir/InputFlags.cpp.o" \
 "CMakeFiles/Beat_The_Beat.dir/Conductor.cpp.o"
 
 # External object files for target Beat_The_Beat
@@ -295,10 +270,9 @@ Beat_The_Beat: CMakeFiles/Beat_The_Beat.dir/Main.cpp.o
 Beat_The_Beat: CMakeFiles/Beat_The_Beat.dir/Game.cpp.o
 Beat_The_Beat: CMakeFiles/Beat_The_Beat.dir/Inputs.cpp.o
 Beat_The_Beat: CMakeFiles/Beat_The_Beat.dir/MagicView.cpp.o
-Beat_The_Beat: CMakeFiles/Beat_The_Beat.dir/Beat.cpp.o
-Beat_The_Beat: CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.o
+Beat_The_Beat: CMakeFiles/Beat_The_Beat.dir/Note.cpp.o
+Beat_The_Beat: CMakeFiles/Beat_The_Beat.dir/Stave.cpp.o
 Beat_The_Beat: CMakeFiles/Beat_The_Beat.dir/GameObject.cpp.o
-Beat_The_Beat: CMakeFiles/Beat_The_Beat.dir/InputFlags.cpp.o
 Beat_The_Beat: CMakeFiles/Beat_The_Beat.dir/Conductor.cpp.o
 Beat_The_Beat: CMakeFiles/Beat_The_Beat.dir/build.make
 Beat_The_Beat: /usr/lib/x86_64-linux-gnu/libsfml-system.so
@@ -307,7 +281,7 @@ Beat_The_Beat: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so
 Beat_The_Beat: /usr/lib/x86_64-linux-gnu/libsfml-network.so
 Beat_The_Beat: /usr/lib/x86_64-linux-gnu/libsfml-audio.so
 Beat_The_Beat: CMakeFiles/Beat_The_Beat.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fabio/Documents/Beat_The_Beat/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable Beat_The_Beat"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fabio/Documents/Beat_The_Beat/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable Beat_The_Beat"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Beat_The_Beat.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -319,10 +293,9 @@ CMakeFiles/Beat_The_Beat.dir/requires: CMakeFiles/Beat_The_Beat.dir/Main.cpp.o.r
 CMakeFiles/Beat_The_Beat.dir/requires: CMakeFiles/Beat_The_Beat.dir/Game.cpp.o.requires
 CMakeFiles/Beat_The_Beat.dir/requires: CMakeFiles/Beat_The_Beat.dir/Inputs.cpp.o.requires
 CMakeFiles/Beat_The_Beat.dir/requires: CMakeFiles/Beat_The_Beat.dir/MagicView.cpp.o.requires
-CMakeFiles/Beat_The_Beat.dir/requires: CMakeFiles/Beat_The_Beat.dir/Beat.cpp.o.requires
-CMakeFiles/Beat_The_Beat.dir/requires: CMakeFiles/Beat_The_Beat.dir/BeatStream.cpp.o.requires
+CMakeFiles/Beat_The_Beat.dir/requires: CMakeFiles/Beat_The_Beat.dir/Note.cpp.o.requires
+CMakeFiles/Beat_The_Beat.dir/requires: CMakeFiles/Beat_The_Beat.dir/Stave.cpp.o.requires
 CMakeFiles/Beat_The_Beat.dir/requires: CMakeFiles/Beat_The_Beat.dir/GameObject.cpp.o.requires
-CMakeFiles/Beat_The_Beat.dir/requires: CMakeFiles/Beat_The_Beat.dir/InputFlags.cpp.o.requires
 CMakeFiles/Beat_The_Beat.dir/requires: CMakeFiles/Beat_The_Beat.dir/Conductor.cpp.o.requires
 
 .PHONY : CMakeFiles/Beat_The_Beat.dir/requires
