@@ -11,9 +11,10 @@
 #include <iostream>
 #include <cassert>
 #include "Game.h"
-
+#include "Resources.h"
 
 int main(int argc, char** argv)
 {
+    Resources::load();
     Game::getInstance()->init();
 }

@@ -3,6 +3,7 @@
 
 #include "GameObject.h"
 #include "Note.h"
+#include "NoteTextEvent.h"
 #include "Conductor.h"
 
 /**
@@ -22,6 +23,7 @@ public:
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const final;
 
 	void addNote(Note* note);
+	void addTextEvent(NoteTextEvent::NoteType type);
 
 private:
 	Conductor* _conductor;
@@ -31,6 +33,11 @@ private:
 		every j-th Note will be too (i < j)
 	*/
 	std::list<Note*> _notes;
+
+	/**
+		Text events that are displayed on screen when a note is failed, good or missed
+	*/
+	std::list<NoteTextEvent*> _textEvents;
 };
 
 #endif

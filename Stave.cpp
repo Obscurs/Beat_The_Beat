@@ -3,13 +3,13 @@
 Stave::Stave() {
 	_conductor = new Conductor("resources/cave-story.ogg");
 
-	addNote(new Note(_conductor, sf::seconds(1.0f), {}));
-	addNote(new Note(_conductor, sf::seconds(2.0f), {}));
-	addNote(new Note(_conductor, sf::seconds(3.0f), {}));
-	addNote(new Note(_conductor, sf::seconds(4.0f), {}));
-	addNote(new Note(_conductor, sf::seconds(5.0f), {}));
-	addNote(new Note(_conductor, sf::seconds(5.5f), {}));
-	addNote(new Note(_conductor, sf::seconds(6.0f), {}));
+	addNote(new Note(_conductor, sf::seconds(1.0f), {true,true,false,false}));
+	addNote(new Note(_conductor, sf::seconds(2.0f), {true,true,false,false}));
+	addNote(new Note(_conductor, sf::seconds(3.0f), {true,true,false,false}));
+	addNote(new Note(_conductor, sf::seconds(4.0f), {true,true,false,false}));
+	addNote(new Note(_conductor, sf::seconds(5.0f), {true,true,false,false}));
+	addNote(new Note(_conductor, sf::seconds(5.5f), {true,true,false,false}));
+	addNote(new Note(_conductor, sf::seconds(6.0f), {true,true,false,false}));
 }
 
 Stave::~Stave() {
@@ -45,12 +45,43 @@ void Stave::onKeyPressed(Inputs::Key key) {
 
 		it++;
 	}
+	if(!keyAccepted) addTextEvent(NoteTextEvent::FAILED);
 }
 
 void Stave::update(const sf::Time& deltatime) {
-	/**
-		Remove all notes that have already expired
-	*/
+
+	std::list<NoteTextEvent*>::iterator itT = _textEvents.begin();
+	while (itT != _textEvents.end()) {
+		NoteTextEvent* textEvent = (*itT);
+		textEvent->update(deltatime);
+		if(!textEvent->_isActive) {
+			_textEvents.erase(itT++);
+			delete textEvent;
+		}
+		else{
+			itT++;
+		}
+	}
+
+	std::list<Note*>::iterator it = _notes.begin();
+	while (it != _notes.end()) {
+		Note* note = (*it);
+		Note::NoteState ns = note->getState();
+		if(ns == Note::MISSED) {
+			addTextEvent(NoteTextEvent::MISSED);
+			_notes.erase(it++);
+			delete note;
+		}
+		else if(ns == Note::GOOD) {
+			addTextEvent(NoteTextEvent::GOOD);
+			_notes.erase(it++);
+			delete note;
+		} else{
+			it++;
+		}
+
+	}
+
 
 /*	const sf::Time currentOffset = _conductor->getCurrentTimestamp();
 
@@ -75,8 +106,14 @@ void Stave::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 	for (Note* note : _notes) {
 		target.draw(*note);
 	}
+	for (NoteTextEvent* textEvent : _textEvents) {
+		target.draw(*textEvent);
+	}
 }
 
 void Stave::addNote(Note* note) {
 	_notes.push_back(note);
+}
+void Stave::addTextEvent(NoteTextEvent::NoteType type){
+	_textEvents.push_back(new NoteTextEvent(type));
 }
