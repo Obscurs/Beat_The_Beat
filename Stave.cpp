@@ -45,16 +45,18 @@ void Stave::onKeyPressed(Inputs::Key key) {
 
 		it++;
 	}
+	/** An unexpected key was pressed (wrong key => fail) */
 	if(!keyAccepted) addTextEvent(NoteTextEvent::FAILED);
 }
 
 void Stave::update(const sf::Time& deltatime) {
 
+	/** update of textEvents */
 	std::list<NoteTextEvent*>::iterator itT = _textEvents.begin();
 	while (itT != _textEvents.end()) {
 		NoteTextEvent* textEvent = (*itT);
 		textEvent->update(deltatime);
-		if(!textEvent->_isActive) {
+		if(!textEvent->isActive()) {
 			_textEvents.erase(itT++);
 			delete textEvent;
 		}
@@ -62,7 +64,9 @@ void Stave::update(const sf::Time& deltatime) {
 			itT++;
 		}
 	}
-
+	/**
+		create of text events and delete notes out of time
+	*/
 	std::list<Note*>::iterator it = _notes.begin();
 	while (it != _notes.end()) {
 		Note* note = (*it);
