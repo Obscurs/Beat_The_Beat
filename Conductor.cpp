@@ -8,9 +8,14 @@ Conductor::Conductor(const std::string& song) {
 }
 
 Conductor::~Conductor() {
-	mSong.stop();
+	stopSong();
 }
 
 sf::Time Conductor::getCurrentTimestamp() const {
 	return mSong.getPlayingOffset();
+}
+void Conductor::stopSong(){
+
+	mSong.stop();
+	//mSong.~Music();
 }

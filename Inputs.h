@@ -25,7 +25,7 @@ public:
 	};
 
 	static Inputs::Key SfmlToGameKey(sf::Keyboard::Key key);
-
+	static Inputs::Key SfmlJoystickToGameKey(int button);
 private:
 	/**
 		Contains the translation between Inputs::Key and sf::Keyboard::Key

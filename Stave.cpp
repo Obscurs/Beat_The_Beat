@@ -13,7 +13,9 @@ Stave::Stave() {
 }
 
 Stave::~Stave() {
+    _conductor->stopSong();
 	for (Note* note : _notes) {
+
 		delete note;
 	}
 
@@ -120,4 +122,9 @@ void Stave::addNote(Note* note) {
 }
 void Stave::addTextEvent(NoteTextEvent::NoteType type){
 	_textEvents.push_back(new NoteTextEvent(type));
+}
+void Stave::close(){
+
+    _conductor->stopSong();
+
 }

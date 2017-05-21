@@ -60,16 +60,21 @@ void Game::event() {
     sf::Event event;
 
     while(_window.pollEvent(event)) {
-        if (event.type == sf::Event::Closed)
+        if (event.type == sf::Event::Closed) {
             end();
-
+        }
         if (event.type == sf::Event::KeyPressed) {
             Inputs::Key key = Inputs::SfmlToGameKey(event.key.code);
 
             _stave.onKeyPressed(key);
         }
+        else if (event.type == sf::Event::JoystickButtonPressed) {
+            Inputs::Key key = Inputs::SfmlJoystickToGameKey(event.joystickButton.button);
+            _stave.onKeyPressed(key);
+        }
         
     }
+
 }
 
 bool Game::isExiting() { return _gameState == Game::Exiting; }
@@ -127,6 +132,7 @@ void Game::updateFpsText(const sf::Time& deltatime) {
 void Game::end() {
     _window.close();
     _gameState = Exiting;
+    _stave.close();
 
     std::cout << "bye" << std::endl;
 }

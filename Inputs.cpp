@@ -21,3 +21,7 @@ Inputs::Key Inputs::SfmlToGameKey(sf::Keyboard::Key key) {
 
 	return Inputs::NO_KEY;
 }
+Inputs::Key Inputs::SfmlJoystickToGameKey(int key) {
+	if(key<Inputs::NUM_KEYS) return static_cast<Inputs::Key> (key);
+	else return Inputs::NO_KEY;
+}

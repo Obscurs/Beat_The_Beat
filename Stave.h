@@ -24,9 +24,10 @@ public:
 
 	void addNote(Note* note);
 	void addTextEvent(NoteTextEvent::NoteType type);
+    void close();
 
 private:
-	Conductor* _conductor;
+    Conductor* _conductor;
 
 	/**
 		Notes are sorted by timestamp. Therefore, if the i-th Note is NO_ACTIVE,

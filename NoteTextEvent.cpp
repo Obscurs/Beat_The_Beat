@@ -43,7 +43,9 @@ void NoteTextEvent::draw(sf::RenderTarget& target, sf::RenderStates states) cons
     }
 
 }
-
+bool NoteTextEvent::isActive() const{
+    return _isActive;
+}
 void NoteTextEvent::update(const sf::Time& deltatime) {
     _timeLeft -= deltatime.asSeconds();
     if(_timeLeft < 0) _isActive = false;

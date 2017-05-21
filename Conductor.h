@@ -7,7 +7,7 @@ class Conductor {
 public:
 	Conductor(const std::string& song);
 	~Conductor();
-
+	void stopSong();
 	sf::Time getCurrentTimestamp() const;
 
 private:
