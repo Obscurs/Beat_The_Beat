@@ -11,6 +11,7 @@ public:
 	sf::Time getCurrentTimestamp() const;
 
 private:
+	sf::FileInputStream mInputStream;
 	sf::Music mSong;
 };
 

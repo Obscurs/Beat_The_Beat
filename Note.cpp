@@ -3,8 +3,8 @@
 const sf::Time Note::TOLERANCE = sf::seconds(0.15f);
 
 const float Note::VERTICAL_POS = SCREEN_HEIGHT / 2;
-const float Note::FINAL_POS = 0.0f;
-const float Note::VEL = 0.5f; // pixel/ms
+const float Note::FINAL_POS = 20.0f;
+const float Note::VEL = 0.05f; // pixel/ms
 
 Note::Note(const Conductor* conductor,
 		   const sf::Time& timestamp,
@@ -68,3 +68,5 @@ bool Note::isKeyExpected(Inputs::Key key) const {
 	unsigned int index = static_cast<unsigned int> (key);
 	return _expectedInput[index] == true;
 }
+
+sf::Vector2f Note::getFinalPos() { return { FINAL_POS, VERTICAL_POS }; }

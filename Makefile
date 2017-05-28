@@ -315,6 +315,60 @@ Note.cpp.s:
 	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/Note.cpp.s
 .PHONY : Note.cpp.s
 
+NoteTextEvent.o: NoteTextEvent.cpp.o
+
+.PHONY : NoteTextEvent.o
+
+# target to build an object file
+NoteTextEvent.cpp.o:
+	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/NoteTextEvent.cpp.o
+.PHONY : NoteTextEvent.cpp.o
+
+NoteTextEvent.i: NoteTextEvent.cpp.i
+
+.PHONY : NoteTextEvent.i
+
+# target to preprocess a source file
+NoteTextEvent.cpp.i:
+	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/NoteTextEvent.cpp.i
+.PHONY : NoteTextEvent.cpp.i
+
+NoteTextEvent.s: NoteTextEvent.cpp.s
+
+.PHONY : NoteTextEvent.s
+
+# target to generate assembly for a file
+NoteTextEvent.cpp.s:
+	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/NoteTextEvent.cpp.s
+.PHONY : NoteTextEvent.cpp.s
+
+Resources.o: Resources.cpp.o
+
+.PHONY : Resources.o
+
+# target to build an object file
+Resources.cpp.o:
+	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/Resources.cpp.o
+.PHONY : Resources.cpp.o
+
+Resources.i: Resources.cpp.i
+
+.PHONY : Resources.i
+
+# target to preprocess a source file
+Resources.cpp.i:
+	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/Resources.cpp.i
+.PHONY : Resources.cpp.i
+
+Resources.s: Resources.cpp.s
+
+.PHONY : Resources.s
+
+# target to generate assembly for a file
+Resources.cpp.s:
+	$(MAKE) -f CMakeFiles/Beat_The_Beat.dir/build.make CMakeFiles/Beat_The_Beat.dir/Resources.cpp.s
+.PHONY : Resources.cpp.s
+
 Stave.o: Stave.cpp.o
 
 .PHONY : Stave.o
@@ -372,6 +426,12 @@ help:
 	@echo "... Note.o"
 	@echo "... Note.i"
 	@echo "... Note.s"
+	@echo "... NoteTextEvent.o"
+	@echo "... NoteTextEvent.i"
+	@echo "... NoteTextEvent.s"
+	@echo "... Resources.o"
+	@echo "... Resources.i"
+	@echo "... Resources.s"
 	@echo "... Stave.o"
 	@echo "... Stave.i"
 	@echo "... Stave.s"

@@ -26,6 +26,8 @@ public:
 	void addTextEvent(NoteTextEvent::NoteType type);
     void close();
 
+    void drawNoteFinalPos(sf::RenderTarget& target) const;
+
 private:
     Conductor* _conductor;
 

@@ -66,6 +66,7 @@ void Stave::update(const sf::Time& deltatime) {
 			itT++;
 		}
 	}
+	
 	/**
 		create of text events and delete notes out of time
 	*/
@@ -109,9 +110,12 @@ void Stave::update(const sf::Time& deltatime) {
 }
 
 void Stave::draw(sf::RenderTarget& target, sf::RenderStates states) const {
+	drawNoteFinalPos(target);
+
 	for (Note* note : _notes) {
 		target.draw(*note);
 	}
+
 	for (NoteTextEvent* textEvent : _textEvents) {
 		target.draw(*textEvent);
 	}
@@ -127,4 +131,17 @@ void Stave::close(){
 
     _conductor->stopSong();
 
+}
+
+void Stave::drawNoteFinalPos(sf::RenderTarget& target) const {
+	sf::Vector2f finalPos = Note::getFinalPos();
+
+	sf::CircleShape finalTarget(10.0f);
+	finalTarget.setOrigin(5.0f, 5.0f);
+	finalTarget.setPosition(finalPos.x, finalPos.y);
+	finalTarget.setFillColor(sf::Color::Transparent);
+	finalTarget.setOutlineThickness(5.0f);
+	finalTarget.setOutlineColor(sf::Color::White);
+
+	target.draw(finalTarget);
 }

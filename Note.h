@@ -65,6 +65,12 @@ public:
 	*/
 	bool isKeyExpected(Inputs::Key key) const;
 
+	/**
+		Returns the point on the window where the input is expected to be 
+		pressed
+	*/
+	static sf::Vector2f getFinalPos();
+
 private:
 	static const sf::Time TOLERANCE;
 
