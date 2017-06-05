@@ -15,15 +15,17 @@ public:
     static sf::Font* getFont(std::string key);
     static sf::Shader* getShader(std::string key);
     static sf::Texture* getTexture(std::string key);
-
+    static sf::Image* getImage(std::string key);
 private:
 
     static std::map<std::string, sf::Font> fontsMap;
     static std::map<std::string, sf::Shader> shadersMap;
     static std::map<std::string, sf::Texture> texturesMap;
+    static std::map<std::string, sf::Image> imagesMap;
 
     static void addFont(std::string key, std::string path);
     static void addTexture(std::string key, std::string path);
+    static void addImage(std::string key, std::string path);
     static void addShader(std::string key, std::string shader);
 };
 

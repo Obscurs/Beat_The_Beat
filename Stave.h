@@ -5,7 +5,7 @@
 #include "Note.h"
 #include "NoteTextEvent.h"
 #include "Conductor.h"
-
+#include "Scene.h"
 /**
 	Class: Stave
 	In music, staves are used to represent music compositions.
@@ -17,19 +17,20 @@ public:
 	Stave();
 	~Stave();
 
-	void onKeyPressed(Inputs::Key key) final;
+	void onKeyPressed(Inputs::Key key, int player) final;
 
 	void update(const sf::Time& deltatime) final;
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const final;
 
 	void addNote(Note* note);
-	void addTextEvent(NoteTextEvent::NoteType type);
+	void addTextEvent(NoteTextEvent::NoteType type,int player);
     void close();
 
     void drawNoteFinalPos(sf::RenderTarget& target) const;
 
 private:
     Conductor* _conductor;
+	Scene* _scene;
 
 	/**
 		Notes are sorted by timestamp. Therefore, if the i-th Note is NO_ACTIVE,

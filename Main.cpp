@@ -1,6 +1,6 @@
 
 #include <stdio.h>
-
+#include <time.h>
 
 #include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
@@ -15,6 +15,7 @@
 
 int main(int argc, char** argv)
 {
+    srand (time(NULL));
     Resources::load();
     Game::getInstance()->init();
 }

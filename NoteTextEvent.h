@@ -21,7 +21,7 @@ public:
         FAILED
     };
 
-    NoteTextEvent(NoteTextEvent::NoteType type);
+    NoteTextEvent(NoteTextEvent::NoteType type,int player);
     ~NoteTextEvent();
     void draw(sf::RenderTarget& target, sf::RenderStates states) const final;
     void update(const sf::Time& deltatime) final;
@@ -30,6 +30,7 @@ public:
 private:
     float _timeLeft;   /** Time until the text disapear */
     bool _isActive;
+    int _player;
     NoteTextEvent::NoteType _noteType;
 
 };

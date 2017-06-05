@@ -9,14 +9,15 @@
 #include "Utils.h"
 
 class Inputs {
-public:
 
+public:
+	static const int NUM_PLAYERS = 2;
 	enum Key {
 		UP = 0,
 		DOWN,
 		LEFT,
 		RIGHT,
-		ACCEPT,
+		JUMP,
 		CANCEL,
 		START,
 		SELECT,

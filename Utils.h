@@ -16,7 +16,7 @@
 #include <unistd.h>
 
 /* Global constants */
-static const unsigned int SCREEN_WIDTH  = 1024;
-static const unsigned int SCREEN_HEIGHT = 1024;
+static const unsigned int SCREEN_WIDTH  = 700;
+static const unsigned int SCREEN_HEIGHT = 470;
 static const unsigned int SCREEN_BPP    = 32;
 static const std::string  SCREEN_TITLE  = "Beat the Beat";

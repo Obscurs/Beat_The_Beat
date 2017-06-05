@@ -4,10 +4,11 @@
 
 #include "NoteTextEvent.h"
 #include "Resources.h"
-NoteTextEvent::NoteTextEvent(NoteTextEvent::NoteType type){
+NoteTextEvent::NoteTextEvent(NoteTextEvent::NoteType type,int player){
     _noteType = type;
     _isActive = true;
     _timeLeft = 1;
+    _player = player;
 }
 
 NoteTextEvent::~NoteTextEvent(){
@@ -17,10 +18,11 @@ void NoteTextEvent::draw(sf::RenderTarget& target, sf::RenderStates states) cons
     if(_isActive){
         sf::Text text;
         text.setFont(*Resources::getFont("font"));
+
         text.setColor(sf::Color::Red);
         text.setCharacterSize(20);
-        float x = 100;
-        float y = 100;
+        float x;
+        float y;
         switch(_noteType){
             case GOOD:
                 text.setString("GOOD");
@@ -36,7 +38,13 @@ void NoteTextEvent::draw(sf::RenderTarget& target, sf::RenderStates states) cons
         }
 
 
-
+        if(_player==0){
+            x = 100;
+            y = 100+_timeLeft*100;
+        } else {
+            x = 600;
+            y = 100+_timeLeft*100;
+        }
         text.setPosition(x, y);
 
         target.draw(text);

@@ -13,8 +13,8 @@ class GameObject : public sf::Drawable {
 	virtual void update(const sf::Time& deltatime);
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
-	virtual void onKeyPressed(Inputs::Key key);
-	virtual void onKeyReleased(Inputs::Key key);
+	virtual void onKeyPressed(Inputs::Key key, int player);
+	virtual void onKeyReleased(Inputs::Key key, int player);
 };
 
 

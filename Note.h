@@ -30,7 +30,7 @@ public:
 		 const std::vector<bool>& expectedInput);
 	~Note();
 
-	void onKeyPressed(Inputs::Key key) final;
+	void onKeyPressed(Inputs::Key key, int player) final;
 
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const final;
 
@@ -45,12 +45,12 @@ public:
 		Returns the current state of the Note.
 		Check above for more information about NoteSates
 	*/
-	Note::NoteState getState() const;
+	Note::NoteState getState(int player) const;
 
 	/**
 		Alias for Note::getState() == Note::ACTIVE
 	*/
-	bool isActive() const;
+	bool isActive(int player) const;
 
 	/**
 		If state == GOOD
@@ -58,7 +58,7 @@ public:
 		Otherwise
 			Returns Inputs::NO_KEY
 	*/
-	Inputs::Key getActivationKey() const;
+	Inputs::Key getActivationKey(int player) const;
 
 	/**
 		Returns true if key is an expected input for the note
@@ -82,7 +82,7 @@ private:
 	const sf::Time _timestamp;
 	const std::vector<bool> _expectedInput;
 
-	Inputs::Key _activationKey;
+	Inputs::Key _activationKey[Inputs::NUM_PLAYERS];
 };
 
 #endif

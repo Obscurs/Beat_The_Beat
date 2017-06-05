@@ -1,8 +1,8 @@
 #include "Note.h"
 
-const sf::Time Note::TOLERANCE = sf::seconds(0.15f);
+const sf::Time Note::TOLERANCE = sf::seconds(0.25f);
 
-const float Note::VERTICAL_POS = SCREEN_HEIGHT / 2;
+const float Note::VERTICAL_POS = SCREEN_HEIGHT / 16;
 const float Note::FINAL_POS = 20.0f;
 const float Note::VEL = 0.05f; // pixel/ms
 
@@ -11,14 +11,17 @@ Note::Note(const Conductor* conductor,
 		   const std::vector<bool>& expectedInput)
 	: _conductor(conductor),
 	  _timestamp(timestamp), 
-	  _expectedInput(expectedInput),
-	  _activationKey(Inputs::NO_KEY) {}
+	  _expectedInput(expectedInput) {
+	for(int i=0; i< Inputs::NUM_PLAYERS; i++){
+		_activationKey[i] = Inputs::NO_KEY;
+	}
+}
 
 Note::~Note() {}
 
-void Note::onKeyPressed(Inputs::Key key) {
-	if (isActive() && isKeyExpected(key)) {
-		_activationKey = key;
+void Note::onKeyPressed(Inputs::Key key, int player) {
+	if (isActive(player) && isKeyExpected(key)) {
+		_activationKey[player] = key;
 	}
 }
 
@@ -37,7 +40,7 @@ void Note::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 	target.draw(sprite);
 }
 
-Note::NoteState Note::getState() const {
+Note::NoteState Note::getState(int player) const {
 	const sf::Time currentOffset = _conductor->getCurrentTimestamp();
 
 	const sf::Time minTimestamp = _timestamp - Note::TOLERANCE;
@@ -46,13 +49,13 @@ Note::NoteState Note::getState() const {
 	if (currentOffset < minTimestamp) {
 		return Note::NO_ACTIVE;
 	} else if (minTimestamp < currentOffset && currentOffset < maxTimestamp) {
-		if (_activationKey == Inputs::NO_KEY) {
+		if (_activationKey[player] == Inputs::NO_KEY) {
 			return Note::ACTIVE;
 		} else {
 			return Note::GOOD;
 		}
 	} else {
-		if (_activationKey == Inputs::NO_KEY) {
+		if (_activationKey[player] == Inputs::NO_KEY) {
 			return Note::MISSED;
 		} else {
 			return Note::GOOD;
@@ -60,9 +63,9 @@ Note::NoteState Note::getState() const {
 	}
 }
 
-bool Note::isActive() const { return getState() == Note::ACTIVE; }
+bool Note::isActive(int player) const { return getState(player) == Note::ACTIVE; }
 
-Inputs::Key Note::getActivationKey() const { return _activationKey; }
+Inputs::Key Note::getActivationKey(int player) const { return _activationKey[player]; }
 
 bool Note::isKeyExpected(Inputs::Key key) const {
 	unsigned int index = static_cast<unsigned int> (key);

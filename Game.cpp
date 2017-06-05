@@ -36,7 +36,9 @@ void Game::init() {
 }
 
 void Game::gameLoop() {
+
     while (not isExiting()) {
+        //std::cout << "ESTE COMENTARIO ES UNA LOCURA" << std::endl; //WTF
         event();
         update();
         draw();
@@ -66,11 +68,11 @@ void Game::event() {
         if (event.type == sf::Event::KeyPressed) {
             Inputs::Key key = Inputs::SfmlToGameKey(event.key.code);
 
-            _stave.onKeyPressed(key);
+            _stave.onKeyPressed(key,0);
         }
         else if (event.type == sf::Event::JoystickButtonPressed) {
             Inputs::Key key = Inputs::SfmlJoystickToGameKey(event.joystickButton.button);
-            _stave.onKeyPressed(key);
+            _stave.onKeyPressed(key,1);
         }
         
     }
