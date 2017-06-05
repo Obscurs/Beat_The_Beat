@@ -63,7 +63,7 @@ bool Entity::colisionRectangle(sf::Vector2f position, sf::Vector2f size){
 }
 void Entity::update(const sf::Time& deltatime, const std::string colisionMap){
     _timeSprite += deltatime.asMilliseconds();
-    //std::cout << _currentKeyframe << " "<< _currentNumFrames << " " << _timeSprite << std::endl; //WTF
+    std::cout << _currentKeyframe << " "<< _currentNumFrames << " " << _timeSprite << std::endl; //WTF
     if(_timeSprite > _timeMaxSprite){
         _timeSprite -= _timeMaxSprite;
         _currentKeyframe +=1;

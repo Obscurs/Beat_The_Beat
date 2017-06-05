@@ -25,7 +25,6 @@ void Quote::update(const sf::Time& deltatime, const std::string colisionMap){
     if(_timerBoostParticle>0) _timerBoostParticle = std::max((float)0,_timerBoostParticle-deltatime.asMilliseconds());
     sf::Image imageCol(*Resources::getImage(colisionMap));
 
-
     bool colBottom = colisionMapBottom(imageCol);
     bool colTop = colisionMapTop(imageCol);
     if(_state != BOOSTING){

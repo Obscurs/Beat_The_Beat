@@ -31,7 +31,7 @@ void Quote1Actor::action(Inputs::Key key, Scene &s){
             _quote->_state = Quote::JUMPING;
         }
         else {
-            _quote->_timerBoost = 200;
+            _quote->_timerBoost = 20;
             _quote->_state = Quote::BOOSTING;
         }
     }
