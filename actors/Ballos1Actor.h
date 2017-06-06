@@ -11,10 +11,10 @@
 
 class Ballos1Actor : public Actor {
 public:
-    Ballos1Actor(int playerId,Quote &q);
+    Ballos1Actor(int playerId,Quote &q, Scene &s);
     ~Ballos1Actor();
     void update(const sf::Time& deltatime);
-    void action(Inputs::Key key, Scene &s);
+    void action(Inputs::Key key);
 private:
     Quote *_quote;
 };

@@ -12,8 +12,8 @@ Stave::Stave() {
 	Quote *e2 = new Quote("s_1_s",sf::Vector2f(620,280),sf::Vector2i(32,32),0,6,0,1, *_scene);
     _scene->addEntity(e);
 	_scene->addEntity(e2);
-    Quote1Actor *a = new Quote1Actor(0, *e2);
-    Ballos1Actor *a2 = new Ballos1Actor(1, *e2);
+    Quote1Actor *a = new Quote1Actor(0, *e2, *_scene);
+    Ballos1Actor *a2 = new Ballos1Actor(1, *e2,*_scene);
     _scene->addActor(a);
     _scene->addActor(a2);
 

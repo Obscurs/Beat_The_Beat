@@ -11,10 +11,10 @@
 class Scene;
 class Quote1Actor : public Actor{
 public:
-    Quote1Actor(int playerId,Quote &q);
+    Quote1Actor(int playerId,Quote &q, Scene &s);
     ~Quote1Actor();
     void update(const sf::Time& deltatime);
-    void action(Inputs::Key key, Scene &s);
+    void action(Inputs::Key key);
 private:
     Quote *_quote;
 };

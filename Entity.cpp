@@ -7,7 +7,7 @@
 Entity::Entity(std::string texture,sf::Vector2f position, sf::Vector2i size, int frame, int id, int damage, int numFrames){
     _position = position;
     _timeSprite = 0;
-    _timeMaxSprite = 10;
+    _timeMaxSprite = 50;
     sf::Texture *tex =Resources::getTexture(texture);
     setTexture(*tex);
     _sizeSprite = size;
@@ -41,14 +41,14 @@ bool Entity::colisionMapTop(sf::Image &image){
     return false;
 }
 bool Entity::colisionMapLeft(sf::Image &image){
-    for(int i=(unsigned int)_position.y; i<(unsigned int)_position.y+_sizeSprite.y; i++){
+    for(int i=(unsigned int)_position.y+4; i<(unsigned int)_position.y+_sizeSprite.y-4; i++){
         sf::Color c = image.getPixel((unsigned int)_position.x,i);
         if(c == sf::Color::White || c == sf::Color::Red) return true;
     }
     return false;
 }
 bool Entity::colisionMapRight(sf::Image &image){
-    for(int i=(unsigned int)_position.y; i<(unsigned int)_position.y+_sizeSprite.y; i++){
+    for(int i=(unsigned int)_position.y+4; i<(unsigned int)_position.y+_sizeSprite.y-4; i++){
         sf::Color c = image.getPixel((unsigned int)_position.x+_sizeSprite.x,i);
         if(c == sf::Color::White || c == sf::Color::Red) return true;
     }
@@ -63,7 +63,9 @@ bool Entity::colisionRectangle(sf::Vector2f position, sf::Vector2f size){
 }
 void Entity::update(const sf::Time& deltatime, const std::string colisionMap){
     _timeSprite += deltatime.asMilliseconds();
-    std::cout << _currentKeyframe << " "<< _currentNumFrames << " " << _timeSprite << std::endl; //WTF
+
+    //std::cout << " "; //WTF
+
     if(_timeSprite > _timeMaxSprite){
         _timeSprite -= _timeMaxSprite;
         _currentKeyframe +=1;

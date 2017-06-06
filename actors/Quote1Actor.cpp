@@ -3,9 +3,10 @@
 //
 
 #include "Quote1Actor.h"
-Quote1Actor::Quote1Actor(int player,Quote &q)
-        : Actor(player){
+Quote1Actor::Quote1Actor(int player,Quote &q, Scene &s)
+        : Actor(player, s){
     _quote = &q;
+
 }
 Quote1Actor::~Quote1Actor(){
 
@@ -13,7 +14,7 @@ Quote1Actor::~Quote1Actor(){
 void Quote1Actor::update(const sf::Time& deltatime) {
 
 }
-void Quote1Actor::action(Inputs::Key key, Scene &s){
+void Quote1Actor::action(Inputs::Key key){
 
     if(key == Inputs::Key::LEFT){
         _quote->_speed.x = 70;
@@ -31,7 +32,7 @@ void Quote1Actor::action(Inputs::Key key, Scene &s){
             _quote->_state = Quote::JUMPING;
         }
         else {
-            _quote->_timerBoost = 20;
+            _quote->_timerBoost = 250;
             _quote->_state = Quote::BOOSTING;
         }
     }

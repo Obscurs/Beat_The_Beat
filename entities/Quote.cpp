@@ -12,6 +12,7 @@ Quote::Quote(std::string texture,sf::Vector2f position, sf::Vector2i size, int f
     _speed = sf::Vector2f(0,0);
     _scene = &s;
     _timerBoostParticle = 0;
+    _timerBoost = 0;
     _state = FALLING;
     _facingState = DOWN;
 }
@@ -71,6 +72,7 @@ void Quote::update(const sf::Time& deltatime, const std::string colisionMap){
             break;
         case FALLING:
             _speed.x = 70;
+
             if(colBottom){
                 _speed.y = 0;
                 _state = STANDING;
@@ -88,7 +90,7 @@ void Quote::update(const sf::Time& deltatime, const std::string colisionMap){
                                                sf::Vector2f(_position.x, _position.y + _sizeSprite.y/2),
                                                sf::Vector2i(32, 32), 0, 8, 0, 4);
                     _scene->addEntity(p);
-                    _timerBoostParticle = 5;
+                    _timerBoostParticle = 20;
                 }
 
             } else{

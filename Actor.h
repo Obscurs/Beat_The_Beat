@@ -6,17 +6,21 @@
 #define BEAT_THE_BEAT_ACTOR_HPP
 
 #include "GameObject.h"
+#include "Entity.h"
+
 class Scene;
 class Actor {
 public:
-    Actor(int playerId);
+    Actor(int playerId, Scene &s);
     virtual ~Actor();
-    virtual void action(Inputs::Key key, Scene &s);
+    virtual void action(Inputs::Key key);
     virtual void update(const sf::Time& deltatime);
     int getPlayerId();
 
-private:
+protected:
     int _playerID;
+    Scene *_s;
+    std::list<Entity*> _tempEntities;
     /*
         action(Key)
      */

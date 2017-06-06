@@ -17,7 +17,7 @@ Scene::~Scene(){
 void Scene::onKeyPressed(Inputs::Key key, int player) {
     for (Actor* a : _actors) {
         if(a->getPlayerId()==player){
-            a->action(key, *this);
+            a->action(key);
         }
     }
 }

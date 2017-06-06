@@ -46,7 +46,11 @@ void Game::gameLoop() {
 }
 
 void Game::update() {
+
+    while (_clock.getElapsedTime() < sf::seconds(1/120.0));
+
     sf::Time deltatime = _clock.restart();
+
     _stave.update(deltatime),
     updateFpsText(deltatime);
 }

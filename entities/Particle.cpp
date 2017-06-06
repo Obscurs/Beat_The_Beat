@@ -6,6 +6,7 @@
 #include "../Resources.h"
 Particle::Particle(std::string texture,sf::Vector2f position, sf::Vector2i size, int frame, int id, int damage, int numFrames)
         : Entity(texture,position,size,frame,id,damage,numFrames){
+    _timeMaxSprite = 100;
 }
 Particle::~Particle(){
 
