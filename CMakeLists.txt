@@ -2,10 +2,31 @@ cmake_minimum_required(VERSION 3.5)
 project(Beat_The_Beat)
 set(CMAKE_VERBOSE_MAKEFILE ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -std=c++11")
-
-set(SOURCE_FILES Main.cpp Game.cpp Game.h Inputs.cpp Inputs.h  MagicView.cpp MagicView.h Note.cpp Note.h Stave.cpp Stave.h GameObject.cpp GameObject.h Conductor.cpp Conductor.h NoteTextEvent.cpp NoteTextEvent.h Resources.cpp Resources.h Scene.cpp Scene.h Entity.cpp Entity.h Actor.cpp Actor.h entities/Quote.cpp entities/Quote.h entities/Box.cpp entities/Box.h actors/Quote1Actor.cpp actors/Quote1Actor.h entities/Particle.cpp entities/Particle.h actors/Ballos1Actor.cpp actors/Ballos1Actor.h)
 set(EXECUTABLE_NAME "Beat_The_Beat")
-add_executable(${EXECUTABLE_NAME} ${SOURCE_FILES})
+
+include_directories(inc)
+add_executable(${EXECUTABLE_NAME}
+	src/AnimatedSprite.cpp
+	src/Animation.cpp
+	src/Conductor.cpp
+	src/Game.cpp
+	src/GameObject.cpp
+	src/InputManager.cpp
+	src/JoystickInputManager.cpp
+	src/KeyboardInputManager.cpp
+	src/MagicView.cpp
+	src/MenuScene.cpp
+	src/Note.cpp
+	src/Player.cpp
+	src/Quote.cpp
+	src/Resources.cpp
+	src/Scene.cpp
+	src/Stave.cpp
+	src/StaveParser.cpp
+	src/TestScene.cpp
+	src/TextParticle.cpp
+	src/main.cpp
+)
 
 # Detect and add SFML
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules" ${CMAKE_MODULE_PATH})
