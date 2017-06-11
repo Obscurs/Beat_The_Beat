@@ -1,33 +1,48 @@
-//
-// Created by arnito on 18/05/17.
-//
+#ifndef RESOURCES_HPP
+#define RESOURCES_HPP
 
-#ifndef BEAT_THE_BEAT_RESOURCES_H
-#define BEAT_THE_BEAT_RESOURCES_H
-
-#define TEXTURETPATH "resources/Textures/"
-#define FONTPATH "resources/"
 #include "utils.h"
+
 class Resources {
 public:
-    static void load();
+    static void loadFont(const std::string& key, const std::string& name);
+    static void loadTexture(const std::string& key, const std::string& name);
+    static void loadImage(const std::string& key, const std::string& name);
+    static void loadInput(const std::string& key, const std::string& name);
 
-    static sf::Font* getFont(std::string key);
-    static sf::Shader* getShader(std::string key);
-    static sf::Texture* getTexture(std::string key);
-    static sf::Image* getImage(std::string key);
+    static sf::Font* getFont(const std::string& key);
+    static sf::Texture* getTexture(const std::string& key);
+    static sf::Image* getImage(const std::string& key);
+    static std::ifstream* getInput(const std::string& key);
+
+    static bool existsFont(const std::string& key);
+    static bool existsTexture(const std::string& key);
+    static bool existsImage(const std::string& key);
+    static bool existsInput(const std::string& key);
+
+    static void unloadFont(const std::string& key);
+    static void unloadTexture(const std::string& key);
+    static void unloadImage(const std::string& key);
+    static void unloadInput(const std::string& key);
+
+    static void unloadAllFonts();
+    static void unloadAllTextures();
+    static void unloadAllImages();
+    static void unloadAllInputs();
+    static void unloadAll();
+
 private:
+    static const std::string RESOURCE_DIR;
+    static const std::string FONTS_DIR;
+    static const std::string TEXTURES_DIR;
+    static const std::string IMAGES_DIR;
+    static const std::string INPUTS_DIR;
 
-    static std::map<std::string, sf::Font> fontsMap;
-    static std::map<std::string, sf::Shader> shadersMap;
-    static std::map<std::string, sf::Texture> texturesMap;
-    static std::map<std::string, sf::Image> imagesMap;
-
-    static void addFont(std::string key, std::string path);
-    static void addTexture(std::string key, std::string path);
-    static void addImage(std::string key, std::string path);
-    static void addShader(std::string key, std::string shader);
+    static std::map<std::string, sf::Font*> mFontsMap;
+    static std::map<std::string, sf::Texture*> mTexturesMap;
+    static std::map<std::string, sf::Image*> mImagesMap;
+    static std::map<std::string, std::ifstream*> mInputsMap;
 };
 
 
-#endif //BEAT_THE_BEAT_RESOURCES_H
+#endif

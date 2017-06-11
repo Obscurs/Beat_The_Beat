@@ -1,65 +1,172 @@
-//
-// Created by arnito on 18/05/17.
-//
-
 #include "Resources.h"
-std::map<std::string, sf::Font> Resources::fontsMap;
-std::map<std::string, sf::Shader> Resources::shadersMap;
-std::map<std::string, sf::Texture> Resources::texturesMap;
-std::map<std::string, sf::Image> Resources::imagesMap;
 
-void printError(std::string s){
-    std::cerr << "Resources:: Error loading... " << s << std::endl;
-}
+const std::string Resources::RESOURCE_DIR = "res/";
+const std::string Resources::FONTS_DIR    = RESOURCE_DIR + "fonts/";
+const std::string Resources::TEXTURES_DIR = RESOURCE_DIR + "textures/";
+const std::string Resources::IMAGES_DIR   = RESOURCE_DIR + "images/";
+const std::string Resources::INPUTS_DIR   = RESOURCE_DIR + "inputs/";
 
-void Resources::load() {
+std::map<std::string, sf::Font*> Resources::mFontsMap;
+std::map<std::string, sf::Texture*> Resources::mTexturesMap;
+std::map<std::string, sf::Image*> Resources::mImagesMap;
+std::map<std::string, std::ifstream*> Resources::mInputsMap;
 
-    static bool firstTimeLoadingResources = true;
-    if(! firstTimeLoadingResources){
-        std::cout << "Already loaded, aborting load" << std::endl;
-        return;
-    }
-    firstTimeLoadingResources = false;
+void Resources::loadFont(const std::string& key, const std::string& name) {
+    if (existsFont(key))
+        unloadFont(key);
 
-    addFont("font","font1.ttf");
-    addImage("s_1_c","scene1_colision.png");
-    addTexture("s_1_b","scene1_background.png");
-    addTexture("s_1_s","test_spritesheet.png");
-    std::cout << " Resources Loaded " << std::endl;
-}
-
-void Resources::addTexture(std::string key, std::string path){
-    if(! texturesMap[key].loadFromFile(TEXTURETPATH+path)) printError(path);
-}
-
-void Resources::addImage(std::string key, std::string path){
-    if(! imagesMap[key].loadFromFile(TEXTURETPATH+path)) printError(path);
-}
-
-void Resources::addShader(std::string key, std::string shader){
-    if(sf::Shader::isAvailable() ){
-        if (!shadersMap[key].loadFromMemory(shader, sf::Shader::Fragment)) {
-            std::cout << "error loading shader" << key << std::endl;
-        }
+    sf::Font* font = new sf::Font();
+    if (font->loadFromFile(Resources::FONTS_DIR + name) == true) {
+        mFontsMap[key] = font;
     }
 }
 
-void Resources::addFont(std::string key, std::string path){
-    if (!fontsMap[key].loadFromFile(FONTPATH+path)) printError(path);
+void Resources::loadTexture(const std::string& key, const std::string& name) {
+    if (existsTexture(key))
+        unloadTexture(key);
+
+    sf::Texture* texture = new sf::Texture();
+    if (texture->loadFromFile(Resources::TEXTURES_DIR + name) == true) {
+        mTexturesMap[key] = texture;
+    }
 }
 
-sf::Font* Resources::getFont(std::string key){
-    return &fontsMap[key];
+void Resources::loadImage(const std::string& key, const std::string& name) {
+    if (existsImage(key))
+        unloadImage(key);
+
+    sf::Image* image = new sf::Image();
+    if (image->loadFromFile(Resources::IMAGES_DIR + name) == true) {
+        mImagesMap[key] = image;
+    }
 }
 
-sf::Shader* Resources::getShader(std::string key){
-    return &shadersMap[key];
+void Resources::loadInput(const std::string& key, const std::string& name) {
+    if (existsInput(key))
+        unloadInput(key);
+
+    std::ifstream* input = new std::ifstream();
+    input->open(Resources::INPUTS_DIR + name);
+    if (input->is_open() == true) {
+        mInputsMap[key] = input;
+    }
 }
 
-sf::Texture* Resources::getTexture(std::string key){
-    return &texturesMap[key];
+sf::Font* Resources::getFont(const std::string& key) {
+    if (existsFont(key))
+        return mFontsMap[key];
+
+    return nullptr;
 }
 
-sf::Image* Resources::getImage(std::string key){
-    return &imagesMap[key];
+sf::Texture* Resources::getTexture(const std::string& key) {
+    if (existsTexture(key))
+        return mTexturesMap[key];
+
+    return nullptr;
+}
+
+sf::Image* Resources::getImage(const std::string& key) {
+    if (existsImage(key))
+        return mImagesMap[key];
+
+    return nullptr;
+}
+
+std::ifstream* Resources::getInput(const std::string& key) {
+    if (existsInput(key))
+        return mInputsMap[key];
+
+    return nullptr;
+}
+
+bool Resources::existsFont(const std::string& key) {
+    return Resources::mFontsMap.find(key) != Resources::mFontsMap.end();
+}
+
+bool Resources::existsTexture(const std::string& key) {
+    return Resources::mTexturesMap.find(key) != Resources::mTexturesMap.end();
+}
+
+bool Resources::existsImage(const std::string& key) {
+    return Resources::mImagesMap.find(key) != Resources::mImagesMap.end();
+}
+
+bool Resources::existsInput(const std::string& key) {
+    return Resources::mInputsMap.find(key) != Resources::mInputsMap.end();
+}
+
+void Resources::unloadFont(const std::string& key) {
+    if (existsFont(key)) {
+        delete mFontsMap[key];
+        mFontsMap.erase(key);
+    }
+}
+
+void Resources::unloadTexture(const std::string& key) {
+    if (existsTexture(key)) {
+        delete mTexturesMap[key];
+        mTexturesMap.erase(key);
+    }
+}
+
+void Resources::unloadImage(const std::string& key) {
+    if (existsImage(key)) {
+        delete mImagesMap[key];
+        mImagesMap.erase(key);
+    }
+}
+
+void Resources::unloadInput(const std::string& key) {
+    if (existsInput(key)) {
+        delete mInputsMap[key];
+        mInputsMap.erase(key);
+    }
+}
+
+void Resources::unloadAllFonts() {
+    std::map<std::string, sf::Font*>::iterator it;
+
+    for (it = mFontsMap.begin(); it != mFontsMap.end(); ++it)
+        if (it->second != nullptr)
+            delete it->second;
+
+    mFontsMap.clear();
+}
+
+void Resources::unloadAllTextures() {
+    std::map<std::string, sf::Texture*>::iterator it;
+
+    for (it = mTexturesMap.begin(); it != mTexturesMap.end(); ++it)
+        if (it->second != nullptr)
+            delete it->second;
+
+    mTexturesMap.clear();
+}
+
+void Resources::unloadAllImages() {
+    std::map<std::string, sf::Image*>::iterator it;
+
+    for (it = mImagesMap.begin(); it != mImagesMap.end(); ++it)
+        if (it->second != nullptr)
+            delete it->second;
+
+    mImagesMap.clear();
+}
+
+void Resources::unloadAllInputs() {
+    std::map<std::string, std::ifstream*>::iterator it;
+
+    for (it = mInputsMap.begin(); it != mInputsMap.end(); ++it)
+        if (it->second != nullptr)
+            delete it->second;
+
+    mInputsMap.clear();
+}
+
+void Resources::unloadAll() {
+    unloadAllFonts();
+    unloadAllTextures();
+    unloadAllImages();
+    unloadAllInputs();
 }
